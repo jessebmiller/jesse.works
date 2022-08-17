@@ -1,0 +1,23 @@
+function wake() {
+    task=$1
+    command=`yq ".$task" < Wakefile`
+    if [ "$command" = "null" ]; then
+        cat Wakefile
+        return 1
+    fi;
+    shift
+    function wake-task-command() {
+        eval $(
+            echo "$command" \
+                | sed s/\$1/$1/g \
+                | sed s/\$2/$2/g \
+                | sed s/\$3/$3/g \
+                | sed s/\$4/$4/g \
+                | sed s/\$5/$5/g \
+                | sed s/\$6/$6/g \
+                | sed s/\$7/$7/g \
+                | sed s/\$8/$8/g
+                )
+    }
+    wake-task-command $@
+}

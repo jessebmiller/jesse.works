@@ -1,54 +1,45 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal TypeScript starter
-</h1>
+# Jesse Works
 
-## 🚀 Quick start
+A place to share my work that matters with people who care
 
-1.  **Create a Gatsby site.**
+writing (zettlekasten, archive, bibliography, blog post)
+* New note (or article, game mechanism, or another typed thing)
+* Text, markup, images, and metadata
+* Types
+  * note (short, in a zettlekasten graph with other notes)
+  * post (arbetrary markdown file)
+  * drawing (an image, description, other metadata)
+* Categories
+  * Software Development and Process
+  * Business
+  * Tabletop Roleplaying Game Design
+  * Artists statements?
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+* Tags
+  * specifics that might match good search terms for some content
+  * games it references (PbtA, FitD, etc.)
+  * business processes it discusses (Lean, Agile, etc.)
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby
-    ```
+Artwork
+* Images and metadata
 
-2.  **Start developing.**
+Games
 
-    Navigate into your new site’s directory and start it up.
+A resume perhaps?
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+## Operations tasks
 
-3.  **Open the code and start customizing!**
+* Develop the system
+  * dev servers for the front end
+  * dev database and backend
+  * watch tests
 
-    Your site is now running at http://localhost:8000!
+* Integrate changes
+  * test pull test
+  * create new version
+  * push integration test
+  * deploy
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
-
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+* publish content
+  * new (note, essay, post, ...)
+  * add a bunch of drawings with metadata
