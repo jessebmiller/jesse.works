@@ -1,41 +1,11 @@
 ---
 title: Trust the Process
-slug: trust-the-process
-date:
-tags: []
-category:
-draft: true
+status: draft
 ---
 
 # Trust the Process
 
-...long enough to get the benefit of hindsight.
-
-Stand on the shoulders of giants.
-
-# A tendency I've seen
-
-Startups tend to think of themselves in wild new territory and then
-act like it. The reality is, they are standing on the shoulders of
-giants (who were standing on the shoulders of giants, all the way
-down).
-
-Trust those shoulders.
-
-Do the math and pull the goalie.
-
-# An opportunity
-
-This is so prevelant that there is a huge opportunity in the market
-for those that do it well. Start something on the basis of this
-insight.
-
-This new company would, as a fundamental principle and value, seek to
-learn (rather than invent) how to do the things it finds that it needs
-to do. It would slowly, after learning the process as established, and
-with hindsight improve the processes according to the company mission
-and vision. It would look for processes and techniques from other
-industries to apply.
+Trust the process long enough to get the benefit of hindsight.
 
 ## An Example
 
