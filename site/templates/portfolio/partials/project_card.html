@@ -1,0 +1,36 @@
+<div class="project-card">
+    <div class="project-image" style="background-color: var(--{{ project.taxonomies.project_types[0] }}-color)">
+        <div class="project-grid">
+            {% for i in range(end=48) %}
+                <div class="grid-cell"></div>
+            {% endfor %}
+        </div>
+        <div class="project-tag-container">
+            <span class="project-tag">
+                {{ project.taxonomies.project_types[0] | capitalize }}
+                {% if project.taxonomies.project_types[0] == "b2b" %}
+                    Solution
+                {% elif project.taxonomies.project_types[0] == "consumer" %}
+                    Product
+                {% else %}
+                    Tool
+                {% endif %}
+            </span>
+        </div>
+    </div>
+    <div class="project-content">
+        <h3 class="project-title">{{ project.title }}</h3>
+        <p class="project-description">
+            {{ project.extra.short_desc }}
+        </p>
+        <div class="project-tags">
+            {% for tag in project.taxonomies.tags %}
+                <span class="tech-tag">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        <div class="project-footer">
+            <span class="project-year" style="color: var(--{{ project.taxonomies.project_types[0] }}-color)">{{ project.extra.year }}</span>
+            <a href="{{ project.permalink }}" class="project-link">View Case Study →</a>
+        </div>
+    </div>
+</div>

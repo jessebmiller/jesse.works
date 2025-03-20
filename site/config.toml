@@ -1,0 +1,22 @@
+# Basic site configuration
+base_url = "http://localhost:1111"
+title = "Jesse Works"
+description = "Product leader with engineering roots, specializing in human-centered design and technical innovation."
+compile_sass = true
+build_search_index = true
+
+# Taxonomies for content organization
+taxonomies = [
+  {name = "categories", feed = true}, # For blog posts
+  {name = "tags", feed = true},       # For both blog and portfolio items
+  {name = "project_types", feed = true, paginate_by = 6} # For filtering portfolio projects
+]
+
+# Theme configuration
+[extra]
+author = "Jesse"
+github = "username"
+linkedin = "username"
+email = "contact@jesseworks.com"
+color_scheme = "solarized" # Options: solarized, original, miro
+mode = "light" # Default color mode

@@ -1,0 +1,45 @@
+<header class="hero-container">
+    <div class="content-container">
+        <div class="hero-grid">
+            <div>
+                <h1 class="hero-heading">
+                    Engineering <span class="accent">meets</span> Product Leadership
+                </h1>
+                <p class="hero-description">
+                    Building pragmatic solutions with human-centered design and technical precision.
+                </p>
+                <div class="button-container">
+                    <a href="{{ get_url(path='@/portfolio/_index.md') }}" class="primary-button">
+                        See my work
+                    </a>
+                    <a href="{{ get_url(path='@/blog/_index.md') }}" class="secondary-button">
+                        Read my thoughts
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- Base circle representing structure/engineering -->
+                <div class="circle-outline"></div>
+
+                <!-- Geometric shapes representing engineering -->
+                <div class="visual-square"></div>
+                <div class="visual-circle"></div>
+
+                <!-- Lines representing connections/product thinking -->
+                <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+                    <path d="M20,50 Q50,20 80,50" class="hero-path-1" fill="none" />
+                    <path d="M20,50 Q50,80 80,50" class="hero-path-2" fill="none" />
+                </svg>
+
+                <!-- Dot pattern overlay -->
+                <div class="dot-pattern">
+                    {% for i in range(end=100) %}
+                        <div class="dot-cell">
+                            <div class="dot"></div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

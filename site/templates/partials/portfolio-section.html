@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="content-container">
+            <h1 class="page-title">{{ section.title }}</h1>
+            <p class="page-description">{{ section.description }}</p>
+        </div>
+    </header>
+
+    <!-- Filter Controls -->
+    {% include "portfolio/partials/filter.html" %}
+
+    <!-- Projects Grid -->
+    {% include "portfolio/partials/project_grid.html" %}
+
+    <!-- Featured Case Study -->
+    {% include "portfolio/partials/featured_case.html" %}
+
+    <!-- Testimonial Section -->
+    {% include "portfolio/partials/testimonial.html" %}
+
+    <!-- Call to Action -->
+    {% include "partials/cta.html" %}
+{% endblock content %}

@@ -1,0 +1,61 @@
+<section class="featured-case-section">
+    <div class="content-container">
+        <h2 class="section-heading">Featured Case Study</h2>
+        
+        {% set featured = section.pages | filter(attribute="extra.featured_case", value=true) | first %}
+        
+        {% if featured %}
+            <div class="case-study-card">
+                <div class="case-study-grid">
+                    <!-- Visual Side -->
+                    <div class="case-study-visual" style="background-color: var(--{{ featured.taxonomies.project_types[0] }}-color)">
+                        <div class="visual-content">
+                            <!-- Abstract representation of the project -->
+                            <div class="visual-container">
+                                <div class="visual-border"></div>
+                                <div class="visual-shape"></div>
+                                <div class="visual-circle"></div>
+                            </div>
+                        </div>
+                        <div class="project-tag-container">
+                            <span class="project-tag">
+                                {{ featured.taxonomies.project_types[0] | capitalize }}
+                                {% if featured.taxonomies.project_types[0] == "b2b" %}
+                                    Solution
+                                {% elif featured.taxonomies.project_types[0] == "consumer" %}
+                                    Product
+                                {% else %}
+                                    Tool
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Content Side -->
+                    <div class="case-study-content">
+                        <h3 class="case-study-title">{{ featured.title }}</h3>
+                        <p class="case-study-description">
+                            {{ featured.description }}
+                        </p>
+                        
+                        <div class="achievements-section">
+                            <h4 class="achievements-title">Key Achievements</h4>
+                            <ul class="achievements-list">
+                                {% for achievement in featured.extra.key_achievements %}
+                                    <li class="achievement-item">
+                                        <span class="achievement-check">✓</span>
+                                        <span>{{ achievement }}</span>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        
+                        <a href="{{ featured.permalink }}" class="case-study-button" style="background-color: var(--{{ featured.taxonomies.project_types[0] }}-color)">
+                            Read Full Case Study
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>

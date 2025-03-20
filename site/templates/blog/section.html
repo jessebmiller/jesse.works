@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="content-container">
+            <h1 class="page-title">{{ section.title }}</h1>
+            <p class="page-description">{{ section.description }}</p>
+        </div>
+    </header>
+
+    <!-- Category Navigation -->
+    {% include "blog/partials/taxonomy_nav.html" %}
+
+    <!-- Article List -->
+    <section class="articles-section">
+        <div class="content-container">
+            <div class="articles-grid-full">
+                {% for page in paginator.pages %}
+                    {% include "blog/partials/article_card.html" %}
+                {% endfor %}
+            </div>
+            
+            <!-- Pagination -->
+            {% if paginator.number_pagers > 1 %}
+                <div class="pagination">
+                    {% if paginator.previous %}
+                        <a href="{{ paginator.previous }}" class="pagination-previous">← Previous</a>
+                    {% endif %}
+                    
+                    {% for i in range(end=paginator.number_pagers) %}
+                        <a href="{{ paginator.base_url }}{% if i != 0 %}/{{ i + 1 }}{% endif %}" 
+                           class="pagination-number {% if paginator.current_index == i + 1 %}active{% endif %}">
+                            {{ i + 1 }}
+                        </a>
+                    {% endfor %}
+                    
+                    {% if paginator.next %}
+                        <a href="{{ paginator.next }}" class="pagination-next">Next →</a>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </section>
+{% endblock content %}

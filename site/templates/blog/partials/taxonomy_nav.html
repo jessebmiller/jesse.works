@@ -1,0 +1,16 @@
+<section class="taxonomy-section">
+    <div class="content-container">
+        <div class="taxonomy-nav">
+            <a href="{{ get_url(path='@/blog/_index.md') }}" class="taxonomy-link {% if current_path == '/blog/' %}active{% endif %}">
+                All Articles
+            </a>
+            
+            {% set categories = get_taxonomy(kind="categories") %}
+            {% for category in categories.items %}
+                <a href="{{ category.permalink }}" class="taxonomy-link {% if current_url == category.permalink %}active{% endif %}">
+                    {{ category.name }} ({{ category.pages | length }})
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>

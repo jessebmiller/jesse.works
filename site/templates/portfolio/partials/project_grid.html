@@ -1,0 +1,16 @@
+<section class="projects-section">
+    <div class="content-container">
+        <div class="projects-grid">
+            {% set projects = section.pages %}
+            
+            {% if get_url(path='filter') and get_url(path='filter') != 'all' %}
+                {% set filter_type = get_url(path='filter') %}
+                {% set projects = section.pages | filter(attribute="taxonomies.project_types", value=filter_type) %}
+            {% endif %}
+            
+            {% for project in projects %}
+                {% include "portfolio/partials/project_card.html" %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

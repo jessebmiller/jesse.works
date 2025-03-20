@@ -1,0 +1,18 @@
+<section class="filter-section">
+    <div class="content-container">
+        <div class="filter-controls">
+            <a href="{{ current_url ~ '?filter=all' | safe }}" class="filter-button {% if not get_url(path='filter') or get_url(path='filter') == 'all' %}active{% endif %}">
+                All Projects
+            </a>
+            <a href="{{ current_url ~ '?filter=consumer' | safe }}" class="filter-button consumer-filter {% if get_url(path='filter') == 'consumer' %}active{% endif %}">
+                Consumer Products
+            </a>
+            <a href="{{ current_url ~ '?filter=b2b' | safe }}" class="filter-button b2b-filter {% if get_url(path='filter') == 'b2b' %}active{% endif %}">
+                B2B Solutions
+            </a>
+            <a href="{{ current_url ~ '?filter=developer' | safe }}" class="filter-button developer-filter {% if get_url(path='filter') == 'developer' %}active{% endif %}">
+                Developer Tools
+            </a>
+        </div>
+    </div>
+</section>

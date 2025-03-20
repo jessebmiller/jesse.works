@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="content-container">
+            <h1 class="page-title">{{ section.title }}</h1>
+            <p class="page-description">{{ section.description }}</p>
+        </div>
+    </header>
+
+    <!-- Introduction Section -->
+    <section class="introduction-section">
+        <div class="content-container">
+            <div class="profile-grid">
+                <!-- Profile/Visual Section -->
+                {% include "partials/profile.html" %}
+                
+                <!-- Bio/Philosophy Content -->
+                <div class="bio-content">
+                    {{ section.content | safe }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Expertise Section -->
+    {% include "partials/skills.html" %}
+
+    <!-- Experience Timeline -->
+    {% include "partials/experience.html" %}
+
+    <!-- Call to Action -->
+    {% include "partials/cta.html" %}
+{% endblock content %}
