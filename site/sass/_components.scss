@@ -1,0 +1,343 @@
+/**
+ * Component styles
+ */
+
+// Button styles
+.btn {
+  display: inline-block;
+  padding: map-get($spacing, '2') map-get($spacing, '4');
+  border-radius: map-get($border-radius, 'md');
+  font-weight: map-get($font-weights, 'medium');
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  
+  &:hover {
+    text-decoration: none;
+  }
+  
+  // Primary button
+  &.btn-primary {
+    background-color: var(--color-accent-blue, #268BD2);
+    color: white;
+    
+    &:hover {
+      background-color: darken(#268BD2, 10%);
+    }
+  }
+  
+  // Secondary button
+  &.btn-secondary {
+    background-color: transparent;
+    border-color: var(--color-accent-blue, #268BD2);
+    color: var(--color-accent-blue, #268BD2);
+    
+    &:hover {
+      background-color: rgba(38, 139, 210, 0.1);
+    }
+  }
+  
+  // Button sizes
+  &.btn-sm {
+    padding: map-get($spacing, '1') map-get($spacing, '2');
+    font-size: map-get($font-sizes, 'sm');
+  }
+  
+  &.btn-lg {
+    padding: map-get($spacing, '3') map-get($spacing, '6');
+    font-size: map-get($font-sizes, 'lg');
+  }
+}
+
+// Card component
+.card {
+  background-color: var(--color-bg-secondary);
+  border-radius: map-get($border-radius, 'lg');
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    padding: map-get($spacing, '4');
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .card-body {
+    padding: map-get($spacing, '4');
+  }
+  
+  .card-footer {
+    padding: map-get($spacing, '4');
+    border-top: 1px solid var(--color-border);
+  }
+}
+
+// Project card component
+.project-card {
+  position: relative;
+  border-radius: map-get($border-radius, 'lg');
+  overflow: hidden;
+  background-color: var(--color-bg-secondary);
+  
+  .project-visual {
+    height: 200px;
+    background-color: var(--color-accent-blue);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .project-content {
+    padding: map-get($spacing, '4');
+  }
+  
+  .project-category {
+    display: inline-block;
+    padding: map-get($spacing, '1') map-get($spacing, '2');
+    border-radius: map-get($border-radius, 'md');
+    background-color: var(--color-accent-blue);
+    color: white;
+    font-size: map-get($font-sizes, 'xs');
+    font-weight: map-get($font-weights, 'medium');
+    margin-bottom: map-get($spacing, '2');
+  }
+  
+  .project-title {
+    font-family: $font-family-heading;
+    font-size: map-get($font-sizes, 'xl');
+    margin-bottom: map-get($spacing, '2');
+  }
+  
+  .project-description {
+    font-size: map-get($font-sizes, 'sm');
+    color: var(--color-text-secondary);
+    margin-bottom: map-get($spacing, '3');
+  }
+  
+  .project-year {
+    font-size: map-get($font-sizes, 'xs');
+    color: var(--color-text-secondary);
+  }
+}
+
+// Article card component
+.article-card {
+  background-color: var(--color-bg-secondary);
+  border-radius: map-get($border-radius, 'lg');
+  overflow: hidden;
+  padding: map-get($spacing, '4');
+  
+  .article-category {
+    display: inline-block;
+    padding: map-get($spacing, '1') map-get($spacing, '2');
+    border-radius: map-get($border-radius, 'md');
+    background-color: var(--color-accent-cyan);
+    color: white;
+    font-size: map-get($font-sizes, 'xs');
+    font-weight: map-get($font-weights, 'medium');
+    margin-bottom: map-get($spacing, '2');
+  }
+  
+  .article-date {
+    font-size: map-get($font-sizes, 'sm');
+    color: var(--color-text-secondary);
+    margin-bottom: map-get($spacing, '2');
+  }
+  
+  .article-title {
+    font-family: $font-family-heading;
+    font-size: map-get($font-sizes, 'xl');
+    margin-bottom: map-get($spacing, '2');
+  }
+  
+  .article-description {
+    font-size: map-get($font-sizes, 'sm');
+    color: var(--color-text-secondary);
+    margin-bottom: map-get($spacing, '3');
+  }
+}
+
+// Tag component
+.tag {
+  display: inline-block;
+  padding: map-get($spacing, '1') map-get($spacing, '2');
+  border-radius: map-get($border-radius, 'md');
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  font-size: map-get($font-sizes, 'xs');
+  font-weight: map-get($font-weights, 'medium');
+  margin-right: map-get($spacing, '2');
+  margin-bottom: map-get($spacing, '2');
+}
+
+// Navigation styles
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: map-get($spacing, '4') 0;
+  
+  .navbar-brand {
+    font-family: $font-family-heading;
+    font-size: map-get($font-sizes, 'xl');
+    font-weight: map-get($font-weights, 'bold');
+  }
+  
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    gap: map-get($spacing, '4');
+    
+    a {
+      font-weight: map-get($font-weights, 'medium');
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--color-accent-blue);
+        transition: width 0.2s ease;
+      }
+      
+      &:hover::after, &.active::after {
+        width: 100%;
+      }
+    }
+  }
+  
+  .theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: map-get($spacing, '2');
+    margin-left: map-get($spacing, '4');
+    
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+  }
+}
+
+// Theme selector component
+.theme-selector {
+  display: flex;
+  gap: map-get($spacing, '2');
+  
+  .theme-option {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    
+    &.active {
+      border-color: var(--color-accent-blue);
+    }
+    
+    &.solarized {
+      background-color: #268BD2;
+    }
+    
+    &.rich {
+      background-color: #EF6461;
+    }
+    
+    &.catalan {
+      background-color: #E63946;
+    }
+  }
+}
+
+// Testimonial block
+.testimonial {
+  background-color: var(--color-bg-secondary);
+  border-radius: map-get($border-radius, 'lg');
+  padding: map-get($spacing, '6');
+  position: relative;
+  
+  &::before {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 4rem;
+    font-family: Georgia, serif;
+    color: var(--color-accent-blue);
+    opacity: 0.2;
+  }
+  
+  .testimonial-text {
+    font-size: map-get($font-sizes, 'xl');
+    font-style: italic;
+    margin-bottom: map-get($spacing, '4');
+  }
+  
+  .testimonial-author {
+    font-weight: map-get($font-weights, 'medium');
+  }
+  
+  .testimonial-company {
+    font-size: map-get($font-sizes, 'sm');
+    color: var(--color-text-secondary);
+  }
+}
+
+// Hero section
+.hero {
+  padding: map-get($spacing, '8') 0;
+  position: relative;
+  
+  .hero-content {
+    max-width: 640px;
+  }
+  
+  .hero-title {
+    font-size: map-get($font-sizes, '5xl');
+    margin-bottom: map-get($spacing, '4');
+    
+    .accent {
+      color: var(--color-accent-blue);
+    }
+  }
+  
+  .hero-subtitle {
+    font-size: map-get($font-sizes, 'xl');
+    color: var(--color-text-secondary);
+    margin-bottom: map-get($spacing, '6');
+  }
+  
+  .hero-cta {
+    display: flex;
+    gap: map-get($spacing, '4');
+  }
+}
+
+// Section headings
+.section-title {
+  font-family: $font-family-heading;
+  font-size: map-get($font-sizes, '3xl');
+  margin-bottom: map-get($spacing, '6');
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 64px;
+    height: 4px;
+    background-color: var(--color-accent-blue);
+  }
+}

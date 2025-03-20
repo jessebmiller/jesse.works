@@ -1,0 +1,192 @@
+/**
+ * Theme system
+ */
+
+// Theme data from TOML converted to Sass maps
+$themes: (
+  // Solarized theme
+  'solarized': (
+    'light': (
+      'base': (
+        'base3': #FDF6E3, // Background
+        'base2': #EEE8D5,
+        'base1': #93A1A1,
+        'base0': #839496
+      ),
+      'content': (
+        'base00': #657B83,
+        'base01': #586E75,
+        'base02': #073642,
+        'base03': #002B36
+      )
+    ),
+    'dark': (
+      'base': (
+        'base03': #002B36, // Background
+        'base02': #073642,
+        'base01': #586E75,
+        'base00': #657B83
+      ),
+      'content': (
+        'base0': #839496,
+        'base1': #93A1A1,
+        'base2': #EEE8D5, 
+        'base3': #FDF6E3
+      )
+    ),
+    'accent': (
+      'yellow': #B58900,
+      'orange': #CB4B16,
+      'red': #DC322F,
+      'magenta': #D33682,
+      'violet': #6C71C4,
+      'blue': #268BD2,
+      'cyan': #2AA198,
+      'green': #859900
+    )
+  ),
+  
+  // Rich theme (formerly "Original")
+  'rich': (
+    'light': (
+      'base': (
+        'warm-sand': #E6DDD1, // Background
+        'muted-clay': #C2B8AD,
+        'soft-stone': #99968F,
+        'dark-gray': #4A4A4A
+      ),
+      'content': (
+        'medium-gray': #707070,
+        'charcoal': #3D3D3D,
+        'off-black': #2D2D2D,
+        'deep-slate': #2D3142
+      )
+    ),
+    'dark': (
+      'base': (
+        'deep-slate': #2D3142, // Background
+        'off-black': #2D2D2D,
+        'charcoal': #3D3D3D,
+        'medium-gray': #707070
+      ),
+      'content': (
+        'soft-stone': #99968F,
+        'muted-clay': #C2B8AD,
+        'warm-sand': #E6DDD1,
+        'off-white': #F5F3F0
+      )
+    ),
+    'accent': (
+      'vivid-coral': #EF6461,
+      'bold-teal': #2CB1BC,
+      'electric-purple': #8A4FFF,
+      'bright-amber': #F7B32B,
+      'forest-green': #1D7874,
+      'deep-blue': #2E5EAA,
+      'dusty-rose': #E07A5F,
+      'sage-green': #81B29A
+    )
+  ),
+  
+  // Catalan theme (formerly "Miró")
+  'catalan': (
+    'light': (
+      'base': (
+        'canvas-white': #FFFEF2, // Background
+        'parchment': #F6F4E8,
+        'shell': #E3DFD7,
+        'stone': #C8C4BC
+      ),
+      'content': (
+        'graphite': #5D5D5D,
+        'charcoal': #3C3C3C,
+        'deep-char': #282828,
+        'ink-black': #1A1A1A
+      )
+    ),
+    'dark': (
+      'base': (
+        'ink-black': #1A1A1A, // Background
+        'deep-char': #282828,
+        'charcoal': #3C3C3C,
+        'graphite': #5D5D5D
+      ),
+      'content': (
+        'stone': #C8C4BC,
+        'shell': #E3DFD7,
+        'parchment': #F6F4E8,
+        'canvas-white': #FFFEF2
+      )
+    ),
+    'accent': (
+      'catalan-red': #E63946,
+      'catalan-blue': #0077B6,
+      'catalan-yellow': #FCBF49,
+      'catalan-black': #000000,
+      'earth-brown': #A26D40,
+      'catalan-green': #38B000,
+      'cerulean': #219EBC,
+      'ochre': #CA6702
+    )
+  )
+);
+
+// Default theme and mode
+$default-theme: 'solarized';
+$default-mode: 'light';
+
+// Generate CSS variables for all themes
+@each $theme-name, $theme-data in $themes {
+  // Light mode
+  [data-theme="#{$theme-name}"] {
+    // Base colors for light mode
+    @each $color-name, $color-value in map-get(map-get($theme-data, 'light'), 'base') {
+      --color-base-#{$color-name}: #{$color-value};
+    }
+    
+    // Content colors for light mode
+    @each $color-name, $color-value in map-get(map-get($theme-data, 'light'), 'content') {
+      --color-content-#{$color-name}: #{$color-value};
+    }
+    
+    // Accent colors (same for both modes)
+    @each $color-name, $color-value in map-get($theme-data, 'accent') {
+      --color-accent-#{$color-name}: #{$color-value};
+    }
+    
+    // Semantic color variables for light mode
+    --color-bg-primary: var(--color-base-#{map-keys(map-get(map-get($theme-data, 'light'), 'base'))[0]});
+    --color-bg-secondary: var(--color-base-#{map-keys(map-get(map-get($theme-data, 'light'), 'base'))[1]});
+    --color-text-primary: var(--color-content-#{map-keys(map-get(map-get($theme-data, 'light'), 'content'))[3]});
+    --color-text-secondary: var(--color-content-#{map-keys(map-get(map-get($theme-data, 'light'), 'content'))[2]});
+    --color-border: var(--color-base-#{map-keys(map-get(map-get($theme-data, 'light'), 'base'))[2]});
+  }
+  
+  // Dark mode
+  [data-theme="#{$theme-name}"][data-mode="dark"] {
+    // Base colors for dark mode
+    @each $color-name, $color-value in map-get(map-get($theme-data, 'dark'), 'base') {
+      --color-base-#{$color-name}: #{$color-value};
+    }
+    
+    // Content colors for dark mode
+    @each $color-name, $color-value in map-get(map-get($theme-data, 'dark'), 'content') {
+      --color-content-#{$color-name}: #{$color-value};
+    }
+    
+    // Semantic color variables for dark mode
+    --color-bg-primary: var(--color-base-#{map-keys(map-get(map-get($theme-data, 'dark'), 'base'))[0]});
+    --color-bg-secondary: var(--color-base-#{map-keys(map-get(map-get($theme-data, 'dark'), 'base'))[1]});
+    --color-text-primary: var(--color-content-#{map-keys(map-get(map-get($theme-data, 'dark'), 'content'))[3]});
+    --color-text-secondary: var(--color-content-#{map-keys(map-get(map-get($theme-data, 'dark'), 'content'))[2]});
+    --color-border: var(--color-base-#{map-keys(map-get(map-get($theme-data, 'dark'), 'base'))[2]});
+  }
+}
+
+// Apply theming to basic elements
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+// Theme-specific component styling can be added below

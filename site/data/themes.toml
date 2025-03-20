@@ -1,0 +1,124 @@
+# Zola Color Theme Definitions
+
+# Solarized Theme
+[themes.solarized]
+name = "Solarized"
+
+# Light Mode
+[themes.solarized.light.base]
+base3 = { name = "Base3 (Background)", hex = "#FDF6E3", rgb = "253, 246, 227" }
+base2 = { name = "Base2", hex = "#EEE8D5", rgb = "238, 232, 213" }
+base1 = { name = "Base1", hex = "#93A1A1", rgb = "147, 161, 161" }
+base0 = { name = "Base0", hex = "#839496", rgb = "131, 148, 150" }
+
+[themes.solarized.light.content]
+base00 = { name = "Base00", hex = "#657B83", rgb = "101, 123, 131" }
+base01 = { name = "Base01", hex = "#586E75", rgb = "88, 110, 117" }
+base02 = { name = "Base02", hex = "#073642", rgb = "7, 54, 66" }
+base03 = { name = "Base03", hex = "#002B36", rgb = "0, 43, 54" }
+
+# Dark Mode
+[themes.solarized.dark.base]
+base03 = { name = "Base03 (Background)", hex = "#002B36", rgb = "0, 43, 54" }
+base02 = { name = "Base02", hex = "#073642", rgb = "7, 54, 66" }
+base01 = { name = "Base01", hex = "#586E75", rgb = "88, 110, 117" }
+base00 = { name = "Base00", hex = "#657B83", rgb = "101, 123, 131" }
+
+[themes.solarized.dark.content]
+base0 = { name = "Base0", hex = "#839496", rgb = "131, 148, 150" }
+base1 = { name = "Base1", hex = "#93A1A1", rgb = "147, 161, 161" }
+base2 = { name = "Base2", hex = "#EEE8D5", rgb = "238, 232, 213" }
+base3 = { name = "Base3", hex = "#FDF6E3", rgb = "253, 246, 227" }
+
+# Accent Colors (same for both modes)
+[themes.solarized.accent]
+yellow = { name = "Yellow", hex = "#B58900", rgb = "181, 137, 0" }
+orange = { name = "Orange", hex = "#CB4B16", rgb = "203, 75, 22" }
+red = { name = "Red", hex = "#DC322F", rgb = "220, 50, 47" }
+magenta = { name = "Magenta", hex = "#D33682", rgb = "211, 54, 130" }
+violet = { name = "Violet", hex = "#6C71C4", rgb = "108, 113, 196" }
+blue = { name = "Blue", hex = "#268BD2", rgb = "38, 139, 210" }
+cyan = { name = "Cyan", hex = "#2AA198", rgb = "42, 161, 152" }
+green = { name = "Green", hex = "#859900", rgb = "133, 153, 0" }
+
+# Rich Theme (formerly "Original")
+[themes.rich]
+name = "Rich"
+
+# Light Mode
+[themes.rich.light.base]
+warm_sand = { name = "Warm Sand", hex = "#E6DDD1", rgb = "230, 221, 209" }
+muted_clay = { name = "Muted Clay", hex = "#C2B8AD", rgb = "194, 184, 173" }
+soft_stone = { name = "Soft Stone", hex = "#99968F", rgb = "153, 150, 143" }
+dark_gray = { name = "Dark Gray", hex = "#4A4A4A", rgb = "74, 74, 74" }
+
+[themes.rich.light.content]
+medium_gray = { name = "Medium Gray", hex = "#707070", rgb = "112, 112, 112" }
+charcoal = { name = "Charcoal", hex = "#3D3D3D", rgb = "61, 61, 61" }
+off_black = { name = "Off Black", hex = "#2D2D2D", rgb = "45, 45, 45" }
+deep_slate = { name = "Deep Slate", hex = "#2D3142", rgb = "45, 49, 66" }
+
+# Dark Mode
+[themes.rich.dark.base]
+deep_slate = { name = "Deep Slate", hex = "#2D3142", rgb = "45, 49, 66" }
+off_black = { name = "Off Black", hex = "#2D2D2D", rgb = "45, 45, 45" }
+charcoal = { name = "Charcoal", hex = "#3D3D3D", rgb = "61, 61, 61" }
+medium_gray = { name = "Medium Gray", hex = "#707070", rgb = "112, 112, 112" }
+
+[themes.rich.dark.content]
+soft_stone = { name = "Soft Stone", hex = "#99968F", rgb = "153, 150, 143" }
+muted_clay = { name = "Muted Clay", hex = "#C2B8AD", rgb = "194, 184, 173" }
+warm_sand = { name = "Warm Sand", hex = "#E6DDD1", rgb = "230, 221, 209" }
+off_white = { name = "Off White", hex = "#F5F3F0", rgb = "245, 243, 240" }
+
+# Accent Colors (same for both modes)
+[themes.rich.accent]
+vivid_coral = { name = "Vivid Coral", hex = "#EF6461", rgb = "239, 100, 97" }
+bold_teal = { name = "Bold Teal", hex = "#2CB1BC", rgb = "44, 177, 188" }
+electric_purple = { name = "Electric Purple", hex = "#8A4FFF", rgb = "138, 79, 255" }
+bright_amber = { name = "Bright Amber", hex = "#F7B32B", rgb = "247, 179, 43" }
+forest_green = { name = "Forest Green", hex = "#1D7874", rgb = "29, 120, 116" }
+deep_blue = { name = "Deep Blue", hex = "#2E5EAA", rgb = "46, 94, 170" }
+dusty_rose = { name = "Dusty Rose", hex = "#E07A5F", rgb = "224, 122, 95" }
+sage_green = { name = "Sage Green", hex = "#81B29A", rgb = "129, 178, 154" }
+
+# Catalan Theme (formerly "Miró")
+[themes.catalan]
+name = "Catalan"
+
+# Light Mode
+[themes.catalan.light.base]
+canvas_white = { name = "Canvas White", hex = "#FFFEF2", rgb = "255, 254, 242" }
+parchment = { name = "Parchment", hex = "#F6F4E8", rgb = "246, 244, 232" }
+shell = { name = "Shell", hex = "#E3DFD7", rgb = "227, 223, 215" }
+stone = { name = "Stone", hex = "#C8C4BC", rgb = "200, 196, 188" }
+
+[themes.catalan.light.content]
+graphite = { name = "Graphite", hex = "#5D5D5D", rgb = "93, 93, 93" }
+charcoal = { name = "Charcoal", hex = "#3C3C3C", rgb = "60, 60, 60" }
+deep_char = { name = "Deep Char", hex = "#282828", rgb = "40, 40, 40" }
+ink_black = { name = "Ink Black", hex = "#1A1A1A", rgb = "26, 26, 26" }
+
+# Dark Mode
+[themes.catalan.dark.base]
+ink_black = { name = "Ink Black", hex = "#1A1A1A", rgb = "26, 26, 26" }
+deep_char = { name = "Deep Char", hex = "#282828", rgb = "40, 40, 40" }
+charcoal = { name = "Charcoal", hex = "#3C3C3C", rgb = "60, 60, 60" }
+graphite = { name = "Graphite", hex = "#5D5D5D", rgb = "93, 93, 93" }
+
+[themes.catalan.dark.content]
+stone = { name = "Stone", hex = "#C8C4BC", rgb = "200, 196, 188" }
+shell = { name = "Shell", hex = "#E3DFD7", rgb = "227, 223, 215" }
+parchment = { name = "Parchment", hex = "#F6F4E8", rgb = "246, 244, 232" }
+canvas_white = { name = "Canvas White", hex = "#FFFEF2", rgb = "255, 254, 242" }
+
+# Accent Colors (same for both modes)
+[themes.catalan.accent]
+catalan_red = { name = "Catalan Red", hex = "#E63946", rgb = "230, 57, 70" }
+catalan_blue = { name = "Catalan Blue", hex = "#0077B6", rgb = "0, 119, 182" }
+catalan_yellow = { name = "Catalan Yellow", hex = "#FCBF49", rgb = "252, 191, 73" }
+catalan_black = { name = "Catalan Black", hex = "#000000", rgb = "0, 0, 0" }
+earth_brown = { name = "Earth Brown", hex = "#A26D40", rgb = "162, 109, 64" }
+catalan_green = { name = "Catalan Green", hex = "#38B000", rgb = "56, 176, 0" }
+cerulean = { name = "Cerulean", hex = "#219EBC", rgb = "33, 158, 188" }
+ochre = { name = "Ochre", hex = "#CA6702", rgb = "202, 103, 2" }
