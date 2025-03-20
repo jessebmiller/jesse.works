@@ -8,7 +8,7 @@ import './HomePage.css'
 function App() {
   return (
     <div>
-      <MoodBoard />
+      <HomePage />
     </div>
   );
 }

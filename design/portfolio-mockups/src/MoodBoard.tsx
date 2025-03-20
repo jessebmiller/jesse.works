@@ -144,8 +144,8 @@ const UpdatedMoodBoard = () => {
       description: "A clean, geometric sans-serif that provides excellent readability while maintaining a modern, professional feel."
     },
     heading: {
-      name: "Montserrat Subrayada",
-      description: "A specialized version of Montserrat with built-in underline styling that creates distinctive headlines with horizontal emphasis."
+      name: "Montserrat Alternates",
+      description: "A variation of Montserrat with unique, more playful character shapes that add personality while maintaining the geometric structure."
     }
   };
 
