@@ -1,5 +1,37 @@
-        <div class="view-all-container">
-            <a href="{{ get_url(path="/portfolio/") }}" class="secondary-button">
-                View All Projects
-            </a>
+<section class="featured-work">
+  <div class="content-container">
+    <h2 class="section-title">FEATURED WORK</h2>
+
+    <div class="work-grid">
+      {% set featured_projects = section.pages | filter(attribute="extra.featured", value=true) | slice(end=3) %}
+
+      {% for project in featured_projects %}
+      <div class="work-card">
+        <div class="card-image" style="background-color: var(--color-accent-{{ project.taxonomies.project_types[0] }})">
+          <!-- Grid pattern or visual -->
+          <div class="project-grid"></div>
         </div>
+        <div class="card-content">
+          <span class="card-tag">
+            {{ project.taxonomies.project_types[0] | capitalize }}
+            {% if project.taxonomies.project_types[0] == "b2b" %}SaaS
+            {% elif project.taxonomies.project_types[0] == "consumer" %}Product
+            {% else %}Tool
+            {% endif %}
+          </span>
+          <h3 class="card-title">{{ project.title }}</h3>
+          <p class="card-description">{{ project.extra.short_desc }}</p>
+          <div class="card-footer">
+            <span class="card-year">{{ project.extra.year }}</span>
+            <a href="{{ project.permalink }}" class="card-link">View Case Study →</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="view-all">
+      <a href="{{ get_url(path="/portfolio/") }}" class="button-secondary">View All Projects</a>
+    </div>
+  </div>
+</section>

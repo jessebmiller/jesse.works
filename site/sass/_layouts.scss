@@ -14,11 +14,11 @@
 
 // Header area
 .site-header {
-  background-color: var(--color-bg-primary);
-  border-bottom: 1px solid var(--color-border);
-  position: sticky;
-  top: 0;
-  z-index: map-get($z-index, 'sticky');
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  margin-bottom: 4rem;
 }
 
 // Main content area
@@ -31,14 +31,14 @@
 .site-footer {
   background-color: var(--color-bg-secondary);
   padding: map-get($spacing, '6') 0;
-  
+
   .footer-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: map-get($spacing, '6');
   }
-  
+
   .footer-copyright {
     width: 100%;
     text-align: center;
@@ -61,7 +61,7 @@
 
 .grid-2 {
   grid-template-columns: 1fr;
-  
+
   @include respond-to('medium') {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -69,11 +69,11 @@
 
 .grid-3 {
   grid-template-columns: 1fr;
-  
+
   @include respond-to('medium') {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   @include respond-to('large') {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -81,11 +81,11 @@
 
 .grid-4 {
   grid-template-columns: 1fr;
-  
+
   @include respond-to('medium') {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   @include respond-to('large') {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -105,11 +105,11 @@ section {
   display: grid;
   grid-template-columns: 1fr;
   gap: map-get($spacing, '6');
-  
+
   @include respond-to('medium') {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   @include respond-to('large') {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -120,7 +120,7 @@ section {
   display: grid;
   grid-template-columns: 1fr;
   gap: map-get($spacing, '6');
-  
+
   @include respond-to('medium') {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -132,16 +132,16 @@ section {
   border-radius: map-get($border-radius, 'lg');
   padding: map-get($spacing, '6');
   text-align: center;
-  
+
   .contact-title {
     margin-bottom: map-get($spacing, '4');
   }
-  
+
   .contact-description {
     max-width: 600px;
     margin: 0 auto map-get($spacing, '6') auto;
   }
-  
+
   .contact-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -155,32 +155,32 @@ section {
   display: grid;
   grid-template-columns: 1fr;
   gap: map-get($spacing, '6');
-  
+
   @include respond-to('medium') {
     grid-template-columns: 1fr 2fr;
     align-items: start;
   }
-  
+
   .profile-image {
     border-radius: map-get($border-radius, 'lg');
     overflow: hidden;
-    
+
     img {
       width: 100%;
       height: auto;
     }
   }
-  
+
   .profile-content {
     .profile-title {
       margin-bottom: map-get($spacing, '2');
     }
-    
+
     .profile-tagline {
       color: var(--color-text-secondary);
       margin-bottom: map-get($spacing, '4');
     }
-    
+
     .profile-social {
       display: flex;
       gap: map-get($spacing, '4');
@@ -194,16 +194,16 @@ section {
   display: grid;
   grid-template-columns: 1fr;
   gap: map-get($spacing, '6');
-  
+
   @include respond-to('medium') {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .skill-category {
     background-color: var(--color-bg-secondary);
     border-radius: map-get($border-radius, 'lg');
     padding: map-get($spacing, '4');
-    
+
     .skill-icon {
       width: 48px;
       height: 48px;
@@ -215,11 +215,11 @@ section {
       background-color: var(--color-accent-blue);
       color: white;
     }
-    
+
     .skill-title {
       margin-bottom: map-get($spacing, '3');
     }
-    
+
     .skill-list {
       li {
         margin-bottom: map-get($spacing, '2');
@@ -231,7 +231,7 @@ section {
 // Experience timeline
 .experience-timeline {
   position: relative;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -240,34 +240,34 @@ section {
     left: 16px;
     width: 2px;
     background-color: var(--color-border);
-    
+
     @include respond-to('medium') {
       left: 50%;
       transform: translateX(-50%);
     }
   }
-  
+
   .timeline-item {
     position: relative;
     margin-bottom: map-get($spacing, '6');
     padding-left: 48px;
-    
+
     @include respond-to('medium') {
       padding-left: 0;
       width: 50%;
-      
+
       &:nth-child(odd) {
         margin-left: 0;
         padding-right: map-get($spacing, '6');
         text-align: right;
       }
-      
+
       &:nth-child(even) {
         margin-left: 50%;
         padding-left: map-get($spacing, '6');
       }
     }
-    
+
     .timeline-dot {
       position: absolute;
       left: 10px;
@@ -276,34 +276,34 @@ section {
       height: 14px;
       border-radius: 50%;
       background-color: var(--color-accent-blue);
-      
+
       @include respond-to('medium') {
         left: auto;
         right: -7px;
-        
+
         .timeline-item:nth-child(even) & {
           right: auto;
           left: -7px;
         }
       }
     }
-    
+
     .timeline-date {
       font-size: map-get($font-sizes, 'sm');
       color: var(--color-text-secondary);
       margin-bottom: map-get($spacing, '2');
     }
-    
+
     .timeline-role {
       font-weight: map-get($font-weights, 'bold');
       margin-bottom: map-get($spacing, '1');
     }
-    
+
     .timeline-company {
       font-weight: map-get($font-weights, 'medium');
       margin-bottom: map-get($spacing, '2');
     }
-    
+
     .timeline-description {
       font-size: map-get($font-sizes, 'sm');
     }
@@ -317,11 +317,11 @@ section {
   padding: map-get($spacing, '6');
   text-align: center;
   margin-top: map-get($spacing, '10');
-  
+
   .cta-title {
     margin-bottom: map-get($spacing, '4');
   }
-  
+
   .cta-description {
     max-width: 600px;
     margin: 0 auto map-get($spacing, '6') auto;
@@ -334,7 +334,7 @@ section {
   flex-wrap: wrap;
   gap: map-get($spacing, '2');
   margin-bottom: map-get($spacing, '6');
-  
+
   .filter-button {
     padding: map-get($spacing, '2') map-get($spacing, '4');
     border-radius: map-get($border-radius, 'md');
@@ -344,11 +344,11 @@ section {
     border: none;
     cursor: pointer;
     transition: all 0.2s ease;
-    
+
     &:hover {
       background-color: rgba(38, 139, 210, 0.1);
     }
-    
+
     &.active {
       background-color: var(--color-accent-blue);
       color: white;
@@ -362,11 +362,11 @@ section {
   grid-template-columns: 1fr;
   gap: map-get($spacing, '6');
   margin-bottom: map-get($spacing, '10');
-  
+
   @include respond-to('medium') {
     grid-template-columns: 1fr 1fr;
   }
-  
+
   .case-visual {
     background-color: var(--color-accent-blue);
     border-radius: map-get($border-radius, 'lg');
@@ -374,31 +374,31 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     img {
       max-width: 80%;
       max-height: 80%;
     }
   }
-  
+
   .case-content {
     .case-title {
       font-size: map-get($font-sizes, '3xl');
       margin-bottom: map-get($spacing, '4');
     }
-    
+
     .case-description {
       margin-bottom: map-get($spacing, '4');
     }
-    
+
     .case-achievements {
       margin-bottom: map-get($spacing, '6');
-      
+
       li {
         position: relative;
         padding-left: 28px;
         margin-bottom: map-get($spacing, '3');
-        
+
         &::before {
           content: '✓';
           position: absolute;
@@ -415,10 +415,10 @@ section {
 .blog-post {
   max-width: 720px;
   margin: 0 auto;
-  
+
   .post-header {
     margin-bottom: map-get($spacing, '6');
-    
+
     .post-category {
       display: inline-block;
       padding: map-get($spacing, '1') map-get($spacing, '2');
@@ -429,12 +429,12 @@ section {
       font-weight: map-get($font-weights, 'medium');
       margin-bottom: map-get($spacing, '2');
     }
-    
+
     .post-title {
       font-size: map-get($font-sizes, '4xl');
       margin-bottom: map-get($spacing, '4');
     }
-    
+
     .post-meta {
       display: flex;
       align-items: center;
@@ -443,71 +443,71 @@ section {
       font-size: map-get($font-sizes, 'sm');
     }
   }
-  
+
   .post-content {
     font-size: map-get($font-sizes, 'lg');
     line-height: map-get($line-heights, 'relaxed');
-    
+
     h2 {
       font-size: map-get($font-sizes, '2xl');
       margin-top: map-get($spacing, '8');
       margin-bottom: map-get($spacing, '4');
     }
-    
+
     h3 {
       font-size: map-get($font-sizes, 'xl');
       margin-top: map-get($spacing, '6');
       margin-bottom: map-get($spacing, '3');
     }
-    
+
     p {
       margin-bottom: map-get($spacing, '4');
     }
-    
+
     ul, ol {
       margin-bottom: map-get($spacing, '4');
       padding-left: 24px;
-      
+
       li {
         margin-bottom: map-get($spacing, '2');
       }
     }
-    
+
     ul {
       list-style-type: disc;
     }
-    
+
     ol {
       list-style-type: decimal;
     }
-    
+
     blockquote {
       border-left: 4px solid var(--color-accent-blue);
       padding-left: map-get($spacing, '4');
       margin: map-get($spacing, '4') 0;
       font-style: italic;
     }
-    
+
     code {
       font-family: monospace;
       background-color: var(--color-bg-secondary);
       padding: 2px 4px;
       border-radius: 4px;
     }
-    
+
     pre {
       background-color: var(--color-bg-secondary);
       padding: map-get($spacing, '4');
       border-radius: map-get($border-radius, 'md');
       overflow-x: auto;
       margin-bottom: map-get($spacing, '4');
-      
+
       code {
         background-color: transparent;
         padding: 0;
       }
     }
-    
+
     img {
       border-radius: map-get($border-radius, 'md');
       margin: map-get($spacing, '4') 0;
@@ -518,7 +518,7 @@ section {
 // Related articles
 .related-articles {
   margin-top: map-get($spacing, '10');
-  
+
   .related-title {
     margin-bottom: map-get($spacing, '6');
   }
@@ -535,13 +535,101 @@ section {
 .nav-links {
   display: flex;
   gap: 1.5rem;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+
+    &:last-child {
+      background-color: var(--color-accent-red, #DC322F);
+      color: white;
+      border-radius: 4px;
+    }
+  }
 }
 
-/* Contact page specific spacing */
-.contact-content {
-  max-width: 800px;
+.hero-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 6rem;
+
+  .hero-content {
+    h1 {
+      font-size: 3rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+
+      .highlight {
+        color: var(--color-accent-blue, #268BD2);
+      }
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      color: var(--color-text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+
+      .button-primary {
+        background-color: var(--color-accent-blue, #268BD2);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+      }
+
+      .button-secondary {
+        border: 1px solid var(--color-text-primary);
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+      }
+    }
+  }
 }
 
-.content-container > * + * {
-  margin-top: 2rem;
+/* work.scss - Featured work section */
+.featured-work {
+  margin-top: 5rem;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+
+    .work-card {
+      border-radius: 8px;
+      overflow: hidden;
+
+      .card-image {
+        height: 200px;
+        background-color: var(--color-accent-blue);
+      }
+
+      .card-content {
+        padding: 1.5rem;
+        background-color: white;
+      }
+
+      .card-tag {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 4px;
+        background-color: var(--color-bg-secondary);
+        margin-bottom: 1rem;
+      }
+    }
+  }
 }

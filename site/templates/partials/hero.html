@@ -1,45 +1,53 @@
-<header class="hero-container">
-    <div class="content-container">
-        <div class="hero-grid">
-            <div>
-                <h1 class="hero-heading">
-                    Engineering <span class="accent">meets</span> Product Leadership
-                </h1>
-                <p class="hero-description">
-                    Building pragmatic solutions with human-centered design and technical precision.
-                </p>
-                <div class="button-container">
-                    <a href="{{ get_url(path="/portfolio/") }}" class="primary-button">
-                        See my work
-                    </a>
-                    <a href="{{ get_url(path="/blog/") }}" class="secondary-button">
-                        Read my thoughts
-                    </a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <!-- Base circle representing structure/engineering -->
-                <div class="circle-outline"></div>
-
-                <!-- Geometric shapes representing engineering -->
-                <div class="visual-square"></div>
-                <div class="visual-circle"></div>
-
-                <!-- Lines representing connections/product thinking -->
-                <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-                    <path d="M20,50 Q50,20 80,50" class="hero-path-1" fill="none" />
-                    <path d="M20,50 Q50,80 80,50" class="hero-path-2" fill="none" />
-                </svg>
-
-                <!-- Dot pattern overlay -->
-                <div class="dot-pattern">
-                    {% for i in range(end=100) %}
-                        <div class="dot-cell">
-                            <div class="dot"></div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
+<header class="hero-section">
+  <div class="content-content">
+    <div>
+      <h1 class="hero-title">
+        Engineering <span class="highlight">meets</span> Product Leadership
+      </h1>
+      <p class="tagline">
+        Building pragmatic solutions with human-centered design and technical precision.
+      </p>
+      <div class="cta-buttons">
+        <a href="{{ get_url(path="/portfolio/") }}" class="button-primary">
+          See my work
+        </a>
+        <a href="{{ get_url(path="/blog/") }}" class="button-secondary">
+          Read my thoughts
+        </a>
+      </div>
     </div>
+
+    <div class="hero-visual">
+      <!-- Base circle representing structure/engineering -->
+      <div class="circle-outline"></div>
+
+      <!-- Geometric shapes representing engineering -->
+      <div class="visual-square"></div>
+      <div class="visual-circle"></div>
+
+      <div class="hero-visual">
+        <!-- Circle outline -->
+        <div class="circle-outline"></div>
+
+        <!-- Geometric elements -->
+        <div class="visual-square"></div>
+        <div class="visual-circle"></div>
+
+        <!-- SVG paths -->
+        <svg viewBox="0 0 100 100">
+          <path d="M20,50 Q50,20 80,50" class="hero-path-1" fill="none" />
+          <path d="M20,50 Q50,80 80,50" class="hero-path-2" fill="none" />
+        </svg>
+
+        <!-- Dot pattern -->
+        <div class="dot-pattern">
+          {% for i in range(end=100) %}
+          <div class="dot-cell">
+            <div class="dot"></div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
