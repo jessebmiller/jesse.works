@@ -25,6 +25,7 @@ body {
 img {
   max-width: 100%;
   display: block;
+  height: auto;
 }
 
 // Inherit fonts for inputs and buttons
@@ -49,6 +50,14 @@ a {
   outline-offset: 2px;
 }
 
+// Reasonable button defaults
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
 // Natural flow and rhythm
 article > * + * {
   margin-top: 1em;
@@ -62,4 +71,42 @@ article > * + * {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+// Form elements styling
+input, textarea {
+  appearance: none;
+  border-radius: 0;
+}
+
+// Tables
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+// SVG elements
+svg {
+  display: block;
+  fill: currentColor;
+}
+
+// Code blocks
+pre, code {
+  font-family: monospace;
+}
+
+// Ensure iOS text is adjustable
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+// Remove markers from details/summary
+details summary {
+  list-style-type: none;
+  cursor: pointer;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
 }

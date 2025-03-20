@@ -2,10 +2,10 @@
 
 {% block content %}
     <!-- Page Header -->
-    <header class="page-header">
-        <div class="content-container">
-            <h1 class="page-title">{{ section.title }}</h1>
-            <p class="page-description">{{ section.description }}</p>
+    <header class="header header--page">
+        <div class="container">
+            <h1 class="heading heading--page">{{ section.title }}</h1>
+            <p class="text text--description">{{ section.description }}</p>
         </div>
     </header>
 
@@ -13,9 +13,9 @@
     {% include "blog/partials/taxonomy_nav.html" %}
 
     <!-- Article List -->
-    <section class="articles-section">
-        <div class="content-container">
-            <div class="articles-grid-full">
+    <section class="section section--articles">
+        <div class="container">
+            <div class="grid grid--articles">
                 {% for page in paginator.pages %}
                     {% include "blog/partials/article_card.html" %}
                 {% endfor %}
@@ -25,18 +25,18 @@
             {% if paginator.number_pagers > 1 %}
                 <div class="pagination">
                     {% if paginator.previous %}
-                        <a href="{{ paginator.previous }}" class="pagination-previous">← Previous</a>
+                        <a href="{{ paginator.previous }}" class="pagination__prev">← Previous</a>
                     {% endif %}
                     
                     {% for i in range(end=paginator.number_pagers) %}
                         <a href="{{ paginator.base_url }}{% if i != 0 %}/{{ i + 1 }}{% endif %}" 
-                           class="pagination-number {% if paginator.current_index == i + 1 %}active{% endif %}">
+                           class="pagination__item {% if paginator.current_index == i + 1 %}pagination__item--active{% endif %}">
                             {{ i + 1 }}
                         </a>
                     {% endfor %}
                     
                     {% if paginator.next %}
-                        <a href="{{ paginator.next }}" class="pagination-next">Next →</a>
+                        <a href="{{ paginator.next }}" class="pagination__next">Next →</a>
                     {% endif %}
                 </div>
             {% endif %}

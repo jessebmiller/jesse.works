@@ -1,12 +1,12 @@
-<div class="project-card">
-    <div class="project-image" style="background-color: var(--{{ project.taxonomies.project_types[0] }}-color)">
-        <div class="project-grid">
+<div class="card card--project">
+    <div class="card__image" style="background-color: var(--color-{{ project.taxonomies.project_types[0] }})">
+        <div class="card__grid">
             {% for i in range(end=48) %}
-                <div class="grid-cell"></div>
+                <div class="card__cell"></div>
             {% endfor %}
         </div>
-        <div class="project-tag-container">
-            <span class="project-tag">
+        <div class="card__tag-container">
+            <span class="tag tag--project">
                 {{ project.taxonomies.project_types[0] | capitalize }}
                 {% if project.taxonomies.project_types[0] == "b2b" %}
                     Solution
@@ -18,19 +18,19 @@
             </span>
         </div>
     </div>
-    <div class="project-content">
-        <h3 class="project-title">{{ project.title }}</h3>
-        <p class="project-description">
+    <div class="card__content">
+        <h3 class="card__title">{{ project.title }}</h3>
+        <p class="card__description">
             {{ project.extra.short_desc }}
         </p>
-        <div class="project-tags">
+        <div class="card__tags">
             {% for tag in project.taxonomies.tags %}
-                <span class="tech-tag">{{ tag }}</span>
+                <span class="tag tag--tech">{{ tag }}</span>
             {% endfor %}
         </div>
-        <div class="project-footer">
-            <span class="project-year" style="color: var(--{{ project.taxonomies.project_types[0] }}-color)">{{ project.extra.year }}</span>
-            <a href="{{ project.permalink }}" class="project-link">View Case Study →</a>
+        <div class="card__footer">
+            <span class="card__year" style="color: var(--color-{{ project.taxonomies.project_types[0] }})">{{ project.extra.year }}</span>
+            <a href="{{ project.permalink }}" class="card__link card__link--action">View Case Study →</a>
         </div>
     </div>
 </div>

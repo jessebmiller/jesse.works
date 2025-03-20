@@ -1,42 +1,42 @@
-<header class="hero-container">
-  <div class="content-container">
-    <div class="hero-grid">
-      <div class="hero-content">
-        <h1 class="hero-heading">
-          Engineering <span class="accent">meets</span> Product Leadership
+<header class="section section--hero">
+  <div class="container">
+    <div class="grid grid--hero">
+      <div class="hero__content">
+        <h1 class="heading heading--hero">
+          Engineering <span class="text text--accent">meets</span> Product Leadership
         </h1>
-        <p class="hero-description">
+        <p class="text text--description">
           Building pragmatic solutions with human-centered design and technical precision.
         </p>
-        <div class="button-container">
-          <a href="{{ get_url(path="/portfolio/") }}" class="primary-button">
+        <div class="hero__buttons">
+          <a href="{{ get_url(path="/portfolio/") }}" class="btn btn--primary">
             See my work
           </a>
-          <a href="{{ get_url(path="/blog/") }}" class="secondary-button">
+          <a href="{{ get_url(path="/blog/") }}" class="btn btn--secondary">
             Read my thoughts
           </a>
         </div>
       </div>
 
-      <div class="hero-visual">
+      <div class="visual visual--hero">
         <!-- Circle outline -->
-        <div class="circle-outline"></div>
+        <div class="visual__circle-outline"></div>
 
         <!-- Geometric elements -->
-        <div class="visual-square"></div>
-        <div class="visual-circle"></div>
+        <div class="visual__square"></div>
+        <div class="visual__circle"></div>
 
         <!-- SVG paths -->
-        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+        <svg class="visual__svg" viewBox="0 0 100 100">
           <path d="M20,50 Q50,20 80,50" stroke="var(--color-accent-red)" stroke-width="2" fill="none" />
           <path d="M20,50 Q50,80 80,50" stroke="var(--color-accent-violet)" stroke-width="2" fill="none" />
         </svg>
 
         <!-- Dot pattern -->
-        <div class="dot-pattern">
+        <div class="visual__dot-pattern">
           {% for i in range(end=100) %}
-            <div class="dot-cell">
-              <div class="dot"></div>
+            <div class="visual__dot-cell">
+              <div class="visual__dot"></div>
             </div>
           {% endfor %}
         </div>

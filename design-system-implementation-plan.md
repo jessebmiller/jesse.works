@@ -20,18 +20,18 @@
     @each $color-name, $color-value in map-get($theme-data, 'light', 'base') {
       --color-base-#{$color-name}: #{map-get($color-value, 'hex')};
     }
-    
+
     // Content colors
     @each $color-name, $color-value in map-get($theme-data, 'light', 'content') {
       --color-content-#{$color-name}: #{map-get($color-value, 'hex')};
     }
-    
+
     // Accent colors
     @each $color-name, $color-value in map-get($theme-data, 'accent') {
       --color-accent-#{$color-name}: #{map-get($color-value, 'hex')};
     }
   }
-  
+
   // Repeat for dark mode
   [data-theme="#{$theme-name}"][data-mode="dark"] {
     // ...
@@ -91,7 +91,7 @@ $breakpoints: (
 // _mixins.scss
 @mixin respond-to($breakpoint) {
   $value: map-get($breakpoints, $breakpoint);
-  
+
   @if $value != null {
     @media (min-width: $value) {
       @content;
@@ -104,7 +104,7 @@ $breakpoints: (
 // Usage
 .element {
   width: 100%;
-  
+
   @include respond-to('medium') {
     width: 50%;
   }
@@ -194,22 +194,22 @@ $font-weights: (
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('theme-toggle');
   const themeSelector = document.getElementById('theme-selector');
-  
+
   // Initialize theme from localStorage or system preference
   const savedTheme = localStorage.getItem('theme') || 'solarized';
-  const savedMode = localStorage.getItem('mode') || 
+  const savedMode = localStorage.getItem('mode') ||
                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  
+
   document.body.dataset.theme = savedTheme;
   document.body.dataset.mode = savedMode;
-  
+
   // Mode toggle (light/dark)
   themeToggle.addEventListener('click', () => {
     const newMode = document.body.dataset.mode === 'light' ? 'dark' : 'light';
     document.body.dataset.mode = newMode;
     localStorage.setItem('mode', newMode);
   });
-  
+
   // Theme selector (solarized/rich/catalan)
   themeSelector.addEventListener('change', (e) => {
     const newTheme = e.target.value;
@@ -238,7 +238,7 @@ body {
 
 ## Next Steps & Timeline
 
-1. **Day 1 (Today)**: 
+1. **Day 1 (Today)**:
    - ✅ Extract color themes to TOML
    - Set up Sass architecture folders
    - Create initial variables and mixins

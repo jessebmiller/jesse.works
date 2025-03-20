@@ -1,28 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <article class="post-container">
-        <div class="content-container">
+    <article class="post">
+        <div class="container">
             <!-- Article Header -->
-            <header class="post-header">
-                <div class="post-meta">
-                    <span class="post-category" style="background-color: {{ page.extra.accent_color | default(value='var(--accent-color-1)') }}">
+            <header class="post__header">
+                <div class="post__meta">
+                    <span class="tag tag--category" style="background-color: {{ page.extra.accent_color | default(value='var(--accent-color-1)') }}">
                         {{ page.taxonomies.categories[0] }}
                     </span>
-                    <time class="post-date">{{ page.date | date(format="%B %d, %Y") }}</time>
+                    <time class="post__date">{{ page.date | date(format="%B %d, %Y") }}</time>
                 </div>
 
-                <h1 class="post-title">{{ page.title }}</h1>
-                <p class="post-description">{{ page.description }}</p>
+                <h1 class="heading heading--post">{{ page.title }}</h1>
+                <p class="text text--description">{{ page.description }}</p>
 
-                <div class="post-tags">
+                <div class="post__tags">
                     {% for tag in page.taxonomies.tags %}
-                        <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}" class="post-tag">{{ tag }}</a>
+                        <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}" class="tag">{{ tag }}</a>
                     {% endfor %}
                 </div>
 
                 {% if page.extra.estimated_reading_time %}
-                    <div class="reading-time">
+                    <div class="post__reading-time">
                         {{ page.extra.estimated_reading_time }} min read
                     </div>
                 {% endif %}
@@ -30,28 +30,28 @@
 
             <!-- Table of Contents (Optional) -->
             {% if page.toc %}
-                <aside class="post-toc">
-                    <h2 class="toc-title">Table of Contents</h2>
-                    <nav class="toc-nav">
+                <aside class="post__toc">
+                    <h2 class="heading heading--toc">Table of Contents</h2>
+                    <nav class="toc__nav">
                         {{ page.toc | safe }}
                     </nav>
                 </aside>
             {% endif %}
 
             <!-- Article Content -->
-            <div class="post-content">
+            <div class="post__content">
                 {{ page.content | safe }}
             </div>
 
             <!-- Author Bio (Optional) -->
-            <div class="author-bio">
-                <div class="author-image">
+            <div class="author">
+                <div class="author__image">
                     <!-- Placeholder or actual image -->
-                    <div class="author-image-placeholder"></div>
+                    <div class="author__image-placeholder"></div>
                 </div>
-                <div class="author-info">
-                    <h3 class="author-name">{{ config.extra.author }}</h3>
-                    <p class="author-description">
+                <div class="author__info">
+                    <h3 class="author__name">{{ config.extra.author }}</h3>
+                    <p class="author__description">
                         Product leader with engineering roots, specializing in human-centered design and technical innovation.
                     </p>
                 </div>
@@ -60,11 +60,11 @@
     </article>
 
     <!-- Related Articles -->
-    <section class="related-posts">
-        <div class="content-container">
-            <h2 class="section-heading">Related Articles</h2>
+    <section class="section section--related">
+        <div class="container">
+            <h2 class="heading heading--section">Related Articles</h2>
 
-            <div class="articles-grid">
+            <div class="grid grid--articles">
               {% if page.taxonomies.categories %}
                 {% set category = page.taxonomies.categories[0] %}
                 {% set tax = get_taxonomy(kind="categories", term=category) %}

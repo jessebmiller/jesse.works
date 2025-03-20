@@ -1,0 +1,118 @@
+// Article card component
+.article-card {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-bg-secondary);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  
+  .article-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    
+    .article-tag {
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      background-color: var(--color-bg-secondary);
+      margin-right: 0.5rem;
+      
+      &.engineering {
+        color: var(--color-accent-blue);
+      }
+      
+      &.product {
+        color: var(--color-accent-red);
+      }
+      
+      &.leadership {
+        color: var(--color-accent-violet);
+      }
+    }
+    
+    .article-date {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+    }
+  }
+  
+  .article-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+  
+  .article-description {
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+  }
+  
+  .article-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    
+    &.engineering {
+      color: var(--color-accent-blue);
+    }
+    
+    &.product {
+      color: var(--color-accent-red);
+    }
+    
+    &.leadership {
+      color: var(--color-accent-violet);
+    }
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Articles section styles
+.articles-section {
+  padding: 4rem 1.5rem;
+  
+  @include respond-to('medium') {
+    padding: 4rem 3rem;
+  }
+  
+  .section-heading {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    font-family: 'Montserrat Alternates', sans-serif;
+  }
+  
+  .articles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    
+    @include respond-to('medium') {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  .view-all-container {
+    margin-top: 3rem;
+    text-align: center;
+  }
+}
+
+// Article listing grid (for blog index)
+.articles-grid-full {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  
+  @include respond-to('medium') {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  @include respond-to('large') {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

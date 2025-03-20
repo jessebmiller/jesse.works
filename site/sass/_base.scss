@@ -82,6 +82,11 @@ $z-index: (
   'tooltip': 600
 );
 
+// Color conversion for RGBA usage (for background translucency)
+@function hexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
 // Base HTML element styles
 html {
   font-size: 16px;
@@ -89,17 +94,18 @@ html {
   line-height: map-get($line-heights, 'normal');
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: $font-family-base;
-    font-weight: map-get($font-weights, 'normal');
-    font-size: map-get($font-sizes, 'base');
-    line-height: map-get($line-heights, 'normal');
-    transition: background-color 0.3s ease, color 0.3s ease;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
+  font-family: $font-family-base;
+  font-weight: map-get($font-weights, 'normal');
+  font-size: map-get($font-sizes, 'base');
+  line-height: map-get($line-heights, 'normal');
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
 }
 
 // Heading styles
@@ -108,8 +114,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: map-get($font-weights, 'bold');
   line-height: map-get($line-heights, 'tight');
   margin-bottom: map-get($spacing, '4');
-  margin-top: 2.5rem;
-  line-height: 1.2;
 }
 
 h1 {
@@ -143,9 +147,24 @@ p {
 
 // Link styles
 a {
-  transition: color 0.2s ease;
+  color: var(--color-text-primary);
+  transition: color 0.2s ease, opacity 0.2s ease;
   
   &:hover {
-    text-decoration: underline;
+    opacity: 0.8;
+  }
+}
+
+// Button resets
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  
+  &:focus {
+    outline: none;
   }
 }

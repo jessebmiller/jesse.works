@@ -1,25 +1,25 @@
-<article class="article-card">
-    <div class="article-header">
-        <span class="article-tag" style="background-color: {{ page.extra.accent_color | default(value='var(--accent-color-1)') }}">
+<article class="card card--article">
+    <div class="card__header">
+        <span class="tag tag--category" style="background-color: {{ page.extra.accent_color | default(value='var(--accent-color-1)') }}">
             {{ page.taxonomies.categories[0] }}
         </span>
-        <span class="article-date">
+        <span class="card__date">
             {{ page.date | date(format="%B %d, %Y") }}
         </span>
     </div>
-    <h3 class="article-title">
-        <a href="{{ page.permalink }}" class="article-title-link">{{ page.title }}</a>
+    <h3 class="card__title">
+        <a href="{{ page.permalink }}" class="card__link">{{ page.title }}</a>
     </h3>
-    <p class="article-description">
+    <p class="card__description">
         {{ page.description }}
     </p>
-    <footer class="article-footer">
-        <div class="article-tags">
+    <footer class="card__footer">
+        <div class="card__tags">
             {% for tag in page.taxonomies.tags %}
-                <span class="article-tag-small">{{ tag }}</span>
+                <span class="tag tag--small">{{ tag }}</span>
             {% endfor %}
         </div>
-        <a href="{{ page.permalink }}" class="article-link" style="color: {{ page.extra.accent_color | default(value='var(--accent-color-1)') }}">
+        <a href="{{ page.permalink }}" class="card__link card__link--action" style="color: {{ page.extra.accent_color | default(value='var(--accent-color-1)') }}">
             Read Article →
         </a>
     </footer>

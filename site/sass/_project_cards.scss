@@ -1,0 +1,107 @@
+// Project card component
+.project-card, .work-card {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: var(--color-bg-primary);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: translateY(-0.5rem);
+  }
+
+  .project-image, .card-image {
+    height: 12rem;
+    width: 100%;
+    position: relative;
+  }
+
+  .project-grid, .card-grid {
+    height: 100%;
+    width: 100%;
+    opacity: 0.2;
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-template-rows: repeat(6, minmax(0, 1fr));
+
+    .grid-cell {
+      border: 1px solid white;
+    }
+  }
+
+  .project-miro {
+    height: 100%;
+    width: 100%;
+    opacity: 0.2;
+    position: relative;
+
+    .project-miro-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .project-miro-shape {
+        width: 4rem;
+        height: 4rem;
+        transform: rotate(45deg);
+        background-color: white;
+      }
+    }
+  }
+
+  .project-content, .card-content {
+    padding: 1.5rem;
+  }
+
+  .project-tag, .card-tag {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  .project-title, .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-description, .card-description {
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .project-footer, .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .project-year, .card-year {
+      font-size: 0.875rem;
+      color: var(--color-accent-blue);
+    }
+
+    .project-link, .card-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

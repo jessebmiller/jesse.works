@@ -11,333 +11,175 @@
   text-align: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  border: 1px solid transparent;
-  
+  text-decoration: none;
+
   &:hover {
     text-decoration: none;
   }
-  
-  // Primary button
-  &.btn-primary {
-    background-color: var(--color-accent-blue, #268BD2);
-    color: white;
-    
-    &:hover {
-      background-color: darken(#268BD2, 10%);
-    }
-  }
-  
-  // Secondary button
-  &.btn-secondary {
-    background-color: transparent;
-    border-color: var(--color-accent-blue, #268BD2);
-    color: var(--color-accent-blue, #268BD2);
-    
-    &:hover {
-      background-color: rgba(38, 139, 210, 0.1);
-    }
-  }
-  
-  // Button sizes
-  &.btn-sm {
-    padding: map-get($spacing, '1') map-get($spacing, '2');
-    font-size: map-get($font-sizes, 'sm');
-  }
-  
-  &.btn-lg {
-    padding: map-get($spacing, '3') map-get($spacing, '6');
-    font-size: map-get($font-sizes, 'lg');
+}
+
+// Primary button
+.btn--primary {
+  background-color: var(--color-accent-primary);
+  color: var(--color-base-background);
+  border: none;
+
+  &:hover {
+    opacity: 0.9;
   }
 }
 
-// Card component
-.card {
-  background-color: var(--color-bg-secondary);
+.btn--cta {
+    background-color: var(--color-accent-success);
+    color: var(--color-base-background);
+    border: none;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// Secondary button
+.btn--secondary {
+  background-color: transparent;
+  border: 1px solid var(--color-text-secondary);
+  color: var(--color-text-secondary);
+
+  &:hover {
+      // TODO replace this explisit color with a theme color and an
+      // opacity modification
+      background-color: rgba(38, 139, 210, 0.1);
+  }
+}
+
+// Nav CTA specific
+.nav-cta {
+  background-color: var(--color-accent-red);
+}
+
+// Card components
+.card, .work-card, .article-card {
+  background-color: var(--color-bg-primary);
   border-radius: map-get($border-radius, 'lg');
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  
+
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   }
-  
-  .card-header {
-    padding: map-get($spacing, '4');
-    border-bottom: 1px solid var(--color-border);
+}
+
+// Contact section styles
+.contact-section, .contact-content {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-primary);
+
+  @include respond-to('medium') {
+    padding: 4rem 3rem;
   }
-  
-  .card-body {
-    padding: map-get($spacing, '4');
+
+  .contact-heading, .section-heading {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: 'Montserrat Alternates', sans-serif;
   }
-  
-  .card-footer {
-    padding: map-get($spacing, '4');
-    border-top: 1px solid var(--color-border);
+
+  .contact-description, .content-text {
+    font-size: 1.125rem;
+    opacity: 0.8;
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+  }
+
+  .contact-buttons, .contact-methods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+
+    .contact-button, .nav-cta {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      background-color: var(--color-accent-red);
+      color: #FDF6E3;
+      text-decoration: none;
+    }
+
+    .contact-link, .secondary-button {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
   }
 }
 
-// Project card component
-.project-card {
-  position: relative;
-  border-radius: map-get($border-radius, 'lg');
-  overflow: hidden;
-  background-color: var(--color-bg-secondary);
-  
-  .project-visual {
-    height: 200px;
-    background-color: var(--color-accent-blue);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .project-content {
-    padding: map-get($spacing, '4');
-  }
-  
-  .project-category {
-    display: inline-block;
-    padding: map-get($spacing, '1') map-get($spacing, '2');
-    border-radius: map-get($border-radius, 'md');
-    background-color: var(--color-accent-blue);
-    color: white;
-    font-size: map-get($font-sizes, 'xs');
-    font-weight: map-get($font-weights, 'medium');
-    margin-bottom: map-get($spacing, '2');
-  }
-  
-  .project-title {
-    font-family: $font-family-heading;
-    font-size: map-get($font-sizes, 'xl');
-    margin-bottom: map-get($spacing, '2');
-  }
-  
-  .project-description {
-    font-size: map-get($font-sizes, 'sm');
-    color: var(--color-text-secondary);
-    margin-bottom: map-get($spacing, '3');
-  }
-  
-  .project-year {
-    font-size: map-get($font-sizes, 'xs');
-    color: var(--color-text-secondary);
-  }
-}
-
-// Article card component
-.article-card {
-  background-color: var(--color-bg-secondary);
-  border-radius: map-get($border-radius, 'lg');
-  overflow: hidden;
-  padding: map-get($spacing, '4');
-  
-  .article-category {
-    display: inline-block;
-    padding: map-get($spacing, '1') map-get($spacing, '2');
-    border-radius: map-get($border-radius, 'md');
-    background-color: var(--color-accent-cyan);
-    color: white;
-    font-size: map-get($font-sizes, 'xs');
-    font-weight: map-get($font-weights, 'medium');
-    margin-bottom: map-get($spacing, '2');
-  }
-  
-  .article-date {
-    font-size: map-get($font-sizes, 'sm');
-    color: var(--color-text-secondary);
-    margin-bottom: map-get($spacing, '2');
-  }
-  
-  .article-title {
-    font-family: $font-family-heading;
-    font-size: map-get($font-sizes, 'xl');
-    margin-bottom: map-get($spacing, '2');
-  }
-  
-  .article-description {
-    font-size: map-get($font-sizes, 'sm');
-    color: var(--color-text-secondary);
-    margin-bottom: map-get($spacing, '3');
-  }
-}
-
-// Tag component
-.tag {
-  display: inline-block;
-  padding: map-get($spacing, '1') map-get($spacing, '2');
-  border-radius: map-get($border-radius, 'md');
-  background-color: var(--color-bg-secondary);
+// Footer styles
+.footer {
+  padding: 1.5rem;
+  text-align: center;
+  background-color: var(--color-text-primary);
   color: var(--color-text-secondary);
-  font-size: map-get($font-sizes, 'xs');
-  font-weight: map-get($font-weights, 'medium');
-  margin-right: map-get($spacing, '2');
-  margin-bottom: map-get($spacing, '2');
-}
 
-// Navigation styles
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: map-get($spacing, '4') 0;
-  
-  .navbar-brand {
-    font-family: $font-family-heading;
-    font-size: map-get($font-sizes, 'xl');
-    font-weight: map-get($font-weights, 'bold');
+  @include respond-to('medium') {
+    padding: 1.5rem 3rem;
   }
-  
-  .navbar-links {
-    display: flex;
-    align-items: center;
-    gap: map-get($spacing, '4');
-    
-    a {
-      font-weight: map-get($font-weights, 'medium');
-      position: relative;
-      
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background-color: var(--color-accent-blue);
-        transition: width 0.2s ease;
-      }
-      
-      &:hover::after, &.active::after {
-        width: 100%;
-      }
-    }
-  }
-  
-  .theme-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: map-get($spacing, '2');
-    margin-left: map-get($spacing, '4');
-    
-    svg {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
-    }
+
+  .content-container {
+    font-size: 0.875rem;
   }
 }
 
-// Theme selector component
-.theme-selector {
-  display: flex;
-  gap: map-get($spacing, '2');
-  
-  .theme-option {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid transparent;
-    
-    &.active {
-      border-color: var(--color-accent-blue);
-    }
-    
-    &.solarized {
-      background-color: #268BD2;
-    }
-    
-    &.rich {
-      background-color: #EF6461;
-    }
-    
-    &.catalan {
-      background-color: #E63946;
-    }
-  }
-}
-
-// Testimonial block
-.testimonial {
+// CTA section (used across pages)
+.cta-section {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  padding: 3rem 1.5rem;
+  text-align: center;
   background-color: var(--color-bg-secondary);
-  border-radius: map-get($border-radius, 'lg');
-  padding: map-get($spacing, '6');
-  position: relative;
-  
-  &::before {
-    content: '"';
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 4rem;
-    font-family: Georgia, serif;
-    color: var(--color-accent-blue);
-    opacity: 0.2;
+  border-radius: 0.5rem;
+
+  .cta-heading {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: 'Montserrat Alternates', sans-serif;
   }
-  
-  .testimonial-text {
-    font-size: map-get($font-sizes, 'xl');
-    font-style: italic;
-    margin-bottom: map-get($spacing, '4');
-  }
-  
-  .testimonial-author {
-    font-weight: map-get($font-weights, 'medium');
-  }
-  
-  .testimonial-company {
-    font-size: map-get($font-sizes, 'sm');
+
+  .cta-description {
+    font-size: 1.125rem;
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
     color: var(--color-text-secondary);
   }
-}
 
-// Hero section
-.hero {
-  padding: map-get($spacing, '8') 0;
-  position: relative;
-  
-  .hero-content {
-    max-width: 640px;
-  }
-  
-  .hero-title {
-    font-size: map-get($font-sizes, '5xl');
-    margin-bottom: map-get($spacing, '4');
-    
-    .accent {
-      color: var(--color-accent-blue);
-    }
-  }
-  
-  .hero-subtitle {
-    font-size: map-get($font-sizes, 'xl');
-    color: var(--color-text-secondary);
-    margin-bottom: map-get($spacing, '6');
-  }
-  
-  .hero-cta {
-    display: flex;
-    gap: map-get($spacing, '4');
-  }
-}
-
-// Section headings
-.section-title {
-  font-family: $font-family-heading;
-  font-size: map-get($font-sizes, '3xl');
-  margin-bottom: map-get($spacing, '6');
-  position: relative;
-  display: inline-block;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 64px;
-    height: 4px;
+  .cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
     background-color: var(--color-accent-blue);
+    color: #FDF6E3;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.9;
+    }
   }
 }
