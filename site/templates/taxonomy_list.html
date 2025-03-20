@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="taxonomy-list-page">
+    <header class="page-header">
+        <div class="content-container">
+            <h1 class="page-title">All {{ taxonomy.name | capitalize }}</h1>
+            <p class="page-description">Browse content by {{ taxonomy.name }}</p>
+        </div>
+    </header>
+
+    <section class="taxonomy-list-section">
+        <div class="content-container">
+            <div class="taxonomy-grid">
+                {% for term in terms %}
+                <div class="taxonomy-item">
+                    <a href="{{ term.permalink }}" class="taxonomy-link">
+                        <h2 class="taxonomy-term-name">{{ term.name }}</h2>
+                        <div class="taxonomy-count">{{ term.pages | length }} 
+                            {% if taxonomy.name == "project_types" %}
+                                project{% if term.pages | length != 1 %}s{% endif %}
+                            {% elif taxonomy.name == "categories" %}
+                                post{% if term.pages | length != 1 %}s{% endif %}
+                            {% else %}
+                                item{% if term.pages | length != 1 %}s{% endif %}
+                            {% endif %}
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+    .taxonomy-list-section {
+        padding: 2rem 1.5rem 6rem;
+    }
+    
+    .taxonomy-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    @media (min-width: 768px) {
+        .taxonomy-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (min-width: 1024px) {
+        .taxonomy-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    
+    .taxonomy-item {
+        background-color: var(--background);
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+    }
+    
+    .taxonomy-item:hover {
+        transform: translateY(-0.25rem);
+    }
+    
+    .taxonomy-link {
+        display: block;
+        padding: 1.5rem;
+        color: var(--content-deep);
+        text-decoration: none;
+    }
+    
+    .taxonomy-term-name {
+        margin-bottom: 0.5rem;
+    }
+    
+    .taxonomy-count {
+        color: var(--content);
+        font-size: 0.875rem;
+    }
+</style>
+{% endblock content %}

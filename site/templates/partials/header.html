@@ -2,11 +2,11 @@
     <div class="nav-logo">{{ config.title }}</div>
     
     <div class="nav-links">
-        <a href="{{ get_url(path='@/_index.md') }}" class="nav-link {% if current_path == '/' %}active{% endif %}">Home</a>
-        <a href="{{ get_url(path='@/about/_index.md') }}" class="nav-link {% if current_path is starting_with('/about') %}active{% endif %}">About</a>
-        <a href="{{ get_url(path='@/portfolio/_index.md') }}" class="nav-link {% if current_path is starting_with('/portfolio') %}active{% endif %}">Portfolio</a>
-        <a href="{{ get_url(path='@/blog/_index.md') }}" class="nav-link {% if current_path is starting_with('/blog') %}active{% endif %}">Blog</a>
-        <a href="{{ get_url(path='@/contact/_index.md') }}" class="nav-cta">Contact</a>
+        <a href="{{ get_url(path="/") }}" class="nav-link {% if current_path == '/' %}active{% endif %}">Home</a>
+        <a href="{{ get_url(path="/about/") }}" class="nav-link {% if current_path is starting_with('/about') %}active{% endif %}">About</a>
+        <a href="{{ get_url(path="/portfolio/") }}" class="nav-link {% if current_path is starting_with('/portfolio') %}active{% endif %}">Portfolio</a>
+        <a href="{{ get_url(path="/blog/") }}" class="nav-link {% if current_path is starting_with('/blog') %}active{% endif %}">Blog</a>
+        <a href="{{ get_url(path="/contact/") }}" class="nav-cta">Contact</a>
         
         <button id="theme-toggle" class="mode-toggle" aria-label="Toggle dark mode">
             <svg class="dark-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">

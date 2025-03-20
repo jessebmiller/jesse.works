@@ -3,7 +3,7 @@ title = "Blog"
 description = "Thoughts on product leadership, engineering, and the intersection of both."
 template = "blog/section.html"
 sort_by = "date"
-sort_order = "descending"
+paginate_reversed = true
 paginate_by = 6
 weight = 3
 +++

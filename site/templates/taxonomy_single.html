@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="taxonomy-single-page">
+    <header class="page-header">
+        <div class="content-container">
+            <h1 class="page-title">{{ taxonomy.name | capitalize }}: {{ term.name }}</h1>
+            <p class="page-description">
+                {% if taxonomy.name == "project_types" %}
+                    Browse all {{ term.pages | length }} projects in this category
+                {% elif taxonomy.name == "categories" %}
+                    Browse all {{ term.pages | length }} posts in this category
+                {% else %}
+                    Browse all {{ term.pages | length }} items tagged with "{{ term.name }}"
+                {% endif %}
+            </p>
+        </div>
+    </header>
+
+    <section class="taxonomy-content-section">
+        <div class="content-container">
+            {% if taxonomy.name == "project_types" %}
+                <div class="projects-grid">
+                    {% for page in term.pages %}
+                        {% set project = page %}
+                        {% include "portfolio/partials/project_card.html" %}
+                    {% endfor %}
+                </div>
+            {% elif taxonomy.name == "categories" %}
+                <div class="articles-grid-full">
+                    {% for page in term.pages %}
+                        {% include "blog/partials/article_card.html" %}
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="mixed-grid">
+                    {% for page in term.pages %}
+                        <div class="mixed-card">
+                            <h2 class="mixed-title">
+                                <a href="{{ page.permalink }}">{{ page.title }}</a>
+                            </h2>
+                            <p class="mixed-description">{{ page.description }}</p>
+                            <div class="mixed-meta">
+                                <span class="mixed-type">
+                                    {% if page.components is containing("portfolio/_index.md") %}
+                                        Project
+                                    {% elif page.components is containing("blog/_index.md") %}
+                                        Article
+                                    {% else %}
+                                        Page
+                                    {% endif %}
+                                </span>
+                                {% if page.date %}
+                                    <span class="mixed-date">{{ page.date | date(format="%B %d, %Y") }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </section>
+</div>
+
+<style>
+    .taxonomy-content-section {
+        padding: 2rem 1.5rem 6rem;
+    }
+    
+    .mixed-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    @media (min-width: 768px) {
+        .mixed-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (min-width: 1024px) {
+        .mixed-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    
+    .mixed-card {
+        background-color: var(--background);
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+    }
+    
+    .mixed-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .mixed-title a {
+        color: var(--content-deep);
+        text-decoration: none;
+    }
+    
+    .mixed-title a:hover {
+        color: var(--accent-color-1);
+    }
+    
+    .mixed-description {
+        color: var(--content);
+        margin-bottom: 1rem;
+    }
+    
+    .mixed-meta {
+        display: flex;
+        justify-content: space-between;
+        color: var(--content-light);
+        font-size: 0.875rem;
+    }
+</style>
+{% endblock content %}
