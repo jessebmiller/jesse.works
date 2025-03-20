@@ -96,6 +96,10 @@
   margin-bottom: map-get($spacing, '10');
 }
 
+section {
+  margin-bottom: 4rem;
+}
+
 // Featured work grid
 .featured-work-grid {
   display: grid;
@@ -518,4 +522,26 @@
   .related-title {
     margin-bottom: map-get($spacing, '6');
   }
+}
+
+/* Header/navigation spacing */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Contact page specific spacing */
+.contact-content {
+  max-width: 800px;
+}
+
+.content-container > * + * {
+  margin-top: 2rem;
 }

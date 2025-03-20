@@ -1,22 +1,18 @@
-<section class="contact-section">
-    <div class="content-container">
-        <h2 class="contact-heading">
-            Let's Connect
-        </h2>
-        <p class="contact-description">
-            I'm always interested in discussing new opportunities with organizations that value both technical excellence and human-centered product thinking.
-        </p>
-
-        <div class="contact-buttons">
-            <a href="mailto:{{ config.extra.email }}" class="nav-cta">
-                Send an Email
-            </a>
-            <a href="https://linkedin.com/in/{{ config.extra.linkedin }}" class="secondary-button">
-                LinkedIn Profile
-            </a>
-            <a href="https://github.com/{{ config.extra.github }}" class="secondary-button">
-                GitHub Profile
-            </a>
-        </div>
+<section class="contact-content">
+  <div class="content-container">
+    <div class="content-text">
+      {{ section.content | safe }}
     </div>
+    <div class="contact-methods">
+      <a href="mailto:{{ config.extra.email }}" class="nav-cta">
+        Send an Email
+      </a>
+      <a href="https://linkedin.com/in/{{ config.extra.linkedin }}" class="secondary-button">
+        LinkedIn Profile
+      </a>
+      <a href="https://github.com/{{ config.extra.github }}" class="secondary-button">
+        GitHub Profile
+      </a>
+    </div>
+  </div>
 </section>

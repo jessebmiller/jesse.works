@@ -92,11 +92,14 @@ html {
 }
 
 body {
-  font-family: $font-family-base;
-  font-weight: map-get($font-weights, 'normal');
-  font-size: map-get($font-sizes, 'base');
-  line-height: map-get($line-heights, 'normal');
-  transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: $font-family-base;
+    font-weight: map-get($font-weights, 'normal');
+    font-size: map-get($font-sizes, 'base');
+    line-height: map-get($line-heights, 'normal');
+    transition: background-color 0.3s ease, color 0.3s ease;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 // Heading styles
@@ -105,6 +108,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: map-get($font-weights, 'bold');
   line-height: map-get($line-heights, 'tight');
   margin-bottom: map-get($spacing, '4');
+  margin-top: 2.5rem;
+  line-height: 1.2;
 }
 
 h1 {

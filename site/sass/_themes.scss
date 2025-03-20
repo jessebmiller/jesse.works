@@ -30,7 +30,7 @@ $themes: (
       'content': (
         'base0': #839496,
         'base1': #93A1A1,
-        'base2': #EEE8D5, 
+        'base2': #EEE8D5,
         'base3': #FDF6E3
       )
     ),
@@ -45,7 +45,7 @@ $themes: (
       'green': #859900
     )
   ),
-  
+
   // Rich theme (formerly "Original")
   'rich': (
     'light': (
@@ -87,7 +87,7 @@ $themes: (
       'sage-green': #81B29A
     )
   ),
-  
+
   // Catalan theme (formerly "Miró")
   'catalan': (
     'light': (
@@ -131,29 +131,25 @@ $themes: (
   )
 );
 
-// Default theme and mode
-$default-theme: 'solarized';
-$default-mode: 'light';
-
 // Generate CSS variables for all themes
 @each $theme-name, $theme-data in $themes {
   // Light mode
-  [data-theme="#{$theme-name}"] {
+  [data-theme="#{$theme-name}"][data-mode="light"] {
     // Base colors for light mode
     @each $color-name, $color-value in map-get(map-get($theme-data, 'light'), 'base') {
       --color-base-#{$color-name}: #{$color-value};
     }
-    
+
     // Content colors for light mode
     @each $color-name, $color-value in map-get(map-get($theme-data, 'light'), 'content') {
       --color-content-#{$color-name}: #{$color-value};
     }
-    
+
     // Accent colors (same for both modes)
     @each $color-name, $color-value in map-get($theme-data, 'accent') {
       --color-accent-#{$color-name}: #{$color-value};
     }
-    
+
     // Semantic color variables for light mode
     --color-bg-primary: var(--color-base-#{map-keys(map-get(map-get($theme-data, 'light'), 'base'))[0]});
     --color-bg-secondary: var(--color-base-#{map-keys(map-get(map-get($theme-data, 'light'), 'base'))[1]});
@@ -161,19 +157,24 @@ $default-mode: 'light';
     --color-text-secondary: var(--color-content-#{map-keys(map-get(map-get($theme-data, 'light'), 'content'))[2]});
     --color-border: var(--color-base-#{map-keys(map-get(map-get($theme-data, 'light'), 'base'))[2]});
   }
-  
+
   // Dark mode
   [data-theme="#{$theme-name}"][data-mode="dark"] {
     // Base colors for dark mode
     @each $color-name, $color-value in map-get(map-get($theme-data, 'dark'), 'base') {
       --color-base-#{$color-name}: #{$color-value};
     }
-    
+
     // Content colors for dark mode
     @each $color-name, $color-value in map-get(map-get($theme-data, 'dark'), 'content') {
       --color-content-#{$color-name}: #{$color-value};
     }
-    
+
+    // Accent colors (same for both modes)
+    @each $color-name, $color-value in map-get($theme-data, 'accent') {
+      --color-accent-#{$color-name}: #{$color-value};
+    }
+
     // Semantic color variables for dark mode
     --color-bg-primary: var(--color-base-#{map-keys(map-get(map-get($theme-data, 'dark'), 'base'))[0]});
     --color-bg-secondary: var(--color-base-#{map-keys(map-get(map-get($theme-data, 'dark'), 'base'))[1]});
@@ -189,4 +190,65 @@ body {
   color: var(--color-text-primary);
 }
 
-// Theme-specific component styling can be added below
+/* Show/hide light and dark icons based on current mode */
+body[data-mode="light"] .dark-icon {
+  display: inline-block;
+}
+
+body[data-mode="light"] .light-icon {
+  display: none;
+}
+
+body[data-mode="dark"] .light-icon {
+  display: inline-block;
+}
+
+body[data-mode="dark"] .dark-icon {
+  display: none;
+}
+
+.theme-option {
+  position: relative;
+  cursor: pointer;
+}
+
+.theme-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: bold;
+  font-size: 10px;
+}
+
+/* Add hover text with title attribute */
+.theme-option:hover::after {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-bg-secondary);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.theme-selector {
+  display: flex;
+  gap: 8px;
+}
+
+.theme-option {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.theme-option.active {
+  border-color: var(--accent-color-1);
+}
