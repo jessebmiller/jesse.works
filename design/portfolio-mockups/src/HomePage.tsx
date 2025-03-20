@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HomePage = () => {
+export const HomePage = () => {
   return (
     <div className="font-sans" style={{ backgroundColor: "#E6DDD1", color: "#2D3142" }}>
       {/* Navigation */}
@@ -26,7 +26,7 @@ const HomePage = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-4" style={{ fontFamily: 'Playfair Display' }}>
+              <h1 className="text-4xl md:text-6xl font-bold mb-4" style={{ fontFamily: 'Montserrat Subrayda' }}>
                 Engineering <span style={{ color: "#2CB1BC" }}>meets</span> Product Leadership
               </h1>
               <p className="text-lg mb-8 opacity-80">Building pragmatic solutions with human-centered design and technical precision.</p>
@@ -72,7 +72,7 @@ const HomePage = () => {
       {/* Featured Work Section */}
       <section className="py-16 px-6 md:px-12" style={{ backgroundColor: "white" }}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12" style={{ fontFamily: 'Playfair Display' }}>Featured Work</h2>
+          <h2 className="text-3xl font-bold mb-12" style={{ fontFamily: 'Montserrat Subrayda' }}>Featured Work</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Project Card 1 */}
@@ -145,7 +145,7 @@ const HomePage = () => {
       {/* Latest Articles Section */}
       <section className="py-16 px-6 md:px-12" style={{ backgroundColor: "#F5F3F0" }}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12" style={{ fontFamily: 'Playfair Display' }}>Latest Articles</h2>
+          <h2 className="text-3xl font-bold mb-12" style={{ fontFamily: 'Montserrat Subrayda' }}>Latest Articles</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Article 1 */}
@@ -183,7 +183,7 @@ const HomePage = () => {
       <section className="py-16 px-6 md:px-12" style={{ backgroundColor: "#2D3142", color: "white" }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: 'Playfair Display' }}>Let's Connect</h2>
+            <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: 'Montserrat Subrayda' }}>Let's Connect</h2>
             <p className="text-lg opacity-80 max-w-2xl mx-auto">I'm always interested in discussing new opportunities with organizations that value both technical excellence and human-centered product thinking.</p>
           </div>
           

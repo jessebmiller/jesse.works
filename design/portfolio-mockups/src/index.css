@@ -1,0 +1,148 @@
+:root {
+  /* Solarized Light */
+  --sl-base03: #002b36;
+  --sl-base02: #073642;
+  --sl-base01: #586e75;
+  --sl-base00: #657b83;
+  --sl-base0: #839496;
+  --sl-base1: #93a1a1;
+  --sl-base2: #eee8d5;
+  --sl-base3: #fdf6e3;
+  
+  /* Solarized Accent Colors */
+  --sl-yellow: #b58900;
+  --sl-orange: #cb4b16;
+  --sl-red: #dc322f;
+  --sl-magenta: #d33682;
+  --sl-violet: #6c71c4;
+  --sl-blue: #268bd2;
+  --sl-cyan: #2aa198;
+  --sl-green: #859900;
+
+  /* Original Theme Light */
+  --og-warm-sand: #E6DDD1;
+  --og-muted-clay: #C2B8AD;
+  --og-soft-stone: #99968F;
+  --og-deep-slate: #2D3142;
+  --og-coral: #EF6461;
+  --og-teal: #2CB1BC;
+  --og-purple: #8A4FFF;
+  --og-amber: #F7B32B;
+
+  /* Miró Theme Light */
+  --miro-canvas: #FFFEF2;
+  --miro-parchment: #F6F4E8;
+  --miro-red: #E63946;
+  --miro-blue: #0077B6;
+  --miro-yellow: #FCBF49;
+  --miro-green: #38B000;
+}
+
+/* Light mode is default */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--sl-base3);
+  color: var(--sl-base03);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode class to be toggled */
+body.dark-mode {
+  background-color: var(--sl-base03);
+  color: var(--sl-base3);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 700;
+}
+
+.subrayada-heading {
+  font-family: 'Montserrat Subrayada', sans-serif;
+}
+
+.heading-semibold {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Basic resets */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Responsive utilities */
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Common components */
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+body.dark-mode .card {
+  background-color: var(--sl-base02);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background-color: var(--sl-blue);
+  color: white;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--sl-base01);
+  border: 1px solid var(--sl-base01);
+}
+
+body.dark-mode .btn-secondary {
+  color: var(--sl-base1);
+  border-color: var(--sl-base1);
+}
