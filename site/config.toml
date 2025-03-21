@@ -18,5 +18,5 @@ author = "Jesse"
 github = "username"
 linkedin = "username"
 email = "contact@jesseworks.com"
-color_scheme = "solarized" # Options: solarized, original, miro
+color_scheme = "catalan" # Options: solarized, rich, catalan
 mode = "light" # Default color mode

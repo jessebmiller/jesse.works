@@ -18,13 +18,13 @@
       </button>
 
       <div id="theme-selector" class="theme__selector">
-        <div class="theme__option theme__option--solarized {% if config.extra.color_scheme == 'solarized' %}theme__option--active{% endif %}" title="Solarized Theme">
+        <div class="theme__option solarized{% if config.extra.color_scheme == 'solarized' %} active{% endif %}" title="Solarized Theme">
           <span class="theme__label">S</span>
         </div>
-        <div class="theme__option theme__option--rich {% if config.extra.color_scheme == 'rich' %}theme__option--active{% endif %}" title="Rich Theme">
+        <div class="theme__option rich{% if config.extra.color_scheme == 'rich' %} active{% endif %}" title="Rich Theme">
           <span class="theme__label">R</span>
         </div>
-        <div class="theme__option theme__option--catalan {% if config.extra.color_scheme == 'catalan' %}theme__option--active{% endif %}" title="Catalan Theme">
+        <div class="theme__option catalan{% if config.extra.color_scheme == 'catalan' %} active{% endif %}" title="Catalan Theme">
           <span class="theme__label">C</span>
         </div>
       </div>

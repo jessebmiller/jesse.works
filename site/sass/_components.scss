@@ -30,7 +30,7 @@
 }
 
 .btn--cta {
-    background-color: var(--color-accent-success);
+    background-color: var(--color-accent-highlight);
     color: var(--color-base-background);
     border: none;
 
@@ -42,19 +42,12 @@
 // Secondary button
 .btn--secondary {
   background-color: transparent;
-  border: 1px solid var(--color-text-secondary);
-  color: var(--color-text-secondary);
+  border: 1px solid var(--color-content-medium);
+  color: var(--color-content-medium);
 
   &:hover {
-      // TODO replace this explisit color with a theme color and an
-      // opacity modification
-      background-color: rgba(38, 139, 210, 0.1);
+      background-color: var(--color-base-surface);
   }
-}
-
-// Nav CTA specific
-.nav-cta {
-  background-color: var(--color-accent-red);
 }
 
 // Card components

@@ -1,14 +1,12 @@
 // Navigation styles
 .nav {
-  position: fixed;
   width: 100%;
   z-index: 10;
   padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  backdrop-filter: blur(8px);
-  background-color: rgba(var(--color-bg-primary-rgb, 253, 246, 227), 0.9);
+  background-color: var(--color-base-background);
 
   @include respond-to('medium') {
     padding: 1rem 3rem;
@@ -38,7 +36,8 @@
     text-decoration: none;
 
     &:hover {
-      opacity: 0.7;
+        opacity: 0.7;
+        transition: color 0.3s ease;
     }
 
     &:visited {
@@ -47,63 +46,6 @@
 
     &.active {
       font-weight: 600;
-    }
-  }
-
-  .nav__cta {
-    background-color: var(--color-accent-red);
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
-    color: #FDF6E3;
-  }
-
-  .mode-toggle {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 9999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-bg-secondary);
-    border: none;
-    cursor: pointer;
-
-    svg {
-      width: 1.25rem;
-      height: 1.25rem;
-    }
-  }
-
-  .mobile-menu-button {
-    padding: 0.25rem;
-    display: block;
-
-    @include respond-to('medium') {
-      display: none;
-    }
-
-    svg {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-  }
-
-  // Theme selector within navigation
-  .theme-selector {
-    display: flex;
-    gap: 8px;
-
-    .theme-option {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      cursor: pointer;
-      border: 2px solid transparent;
-
-      &.active {
-        border-color: var(--color-accent-blue);
-      }
     }
   }
 }

@@ -42,7 +42,7 @@ $themes: (
       'content': (
         'subtle': #657B83,      // base00
         'muted': #586E75,       // base01
-        'medium': #073642,      // base02
+        'secondary': #073642,      // base02
         'primary': #002B36      // base03
       )
     ),
@@ -56,7 +56,7 @@ $themes: (
       'content': (
         'subtle': #839496,      // base0
         'muted': #93A1A1,       // base1
-        'medium': #EEE8D5,      // base2
+        'secondary': #EEE8D5,      // base2
         'primary': #FDF6E3      // base3
       )
     ),
@@ -84,7 +84,7 @@ $themes: (
       'content': (
         'subtle': #707070,      // medium-gray
         'muted': #3D3D3D,       // charcoal
-        'medium': #2D2D2D,      // off-black
+        'secondary': #2D2D2D,      // off-black
         'primary': #2D3142      // deep-slate
       )
     ),
@@ -98,7 +98,7 @@ $themes: (
       'content': (
         'subtle': #99968F,      // soft-stone
         'muted': #C2B8AD,       // muted-clay
-        'medium': #E6DDD1,      // warm-sand
+        'secondary': #E6DDD1,      // warm-sand
         'primary': #F5F3F0      // off-white (added)
       )
     ),
@@ -126,7 +126,7 @@ $themes: (
       'content': (
         'subtle': #5D5D5D,      // graphite
         'muted': #3C3C3C,       // charcoal
-        'medium': #282828,      // deep-char
+        'secondary': #282828,      // deep-char
         'primary': #1A1A1A      // ink-black
       )
     ),
@@ -140,7 +140,7 @@ $themes: (
       'content': (
         'subtle': #C8C4BC,      // stone
         'muted': #E3DFD7,       // shell
-        'medium': #F6F4E8,      // parchment
+        'secondary': #F6F4E8,      // parchment
         'primary': #FFFEF2      // canvas-white
       )
     ),
@@ -163,54 +163,64 @@ $themes: (
   [data-theme="#{$theme-name}"][data-mode="light"] {
     // Generate all color variables with standardized names
     @each $color-name, $color-value in map-get(map-get($theme-data, 'light'), 'base') {
-      --color-base-#{$color-name}: #{$color-value};
+        --color-base-#{$color-name}: #{$color-value};
+
     }
-    
+
     @each $color-name, $color-value in map-get(map-get($theme-data, 'light'), 'content') {
-      --color-content-#{$color-name}: #{$color-value};
+        --color-content-#{$color-name}: #{$color-value};
+        --#{$theme-name}-color-content-#{$color-name}: #{$color-value};
     }
-    
+
     // Accent colors (same for both modes)
     @each $color-name, $color-value in map-get($theme-data, 'accent') {
       --color-accent-#{$color-name}: #{$color-value};
+      --#{$theme-name}-color-accent-#{$color-name}: #{$color-value};
     }
-
-    // Semantic color variables
-    --color-bg-primary: var(--color-base-background);
-    --color-bg-secondary: var(--color-base-surface);
-    --color-text-primary: var(--color-content-primary);
-    --color-text-secondary: var(--color-content-medium);
-    --color-border: var(--color-base-muted);
   }
 
   // Dark mode
   [data-theme="#{$theme-name}"][data-mode="dark"] {
     // Generate all color variables with standardized names
     @each $color-name, $color-value in map-get(map-get($theme-data, 'dark'), 'base') {
-      --color-base-#{$color-name}: #{$color-value};
-    }
-    
-    @each $color-name, $color-value in map-get(map-get($theme-data, 'dark'), 'content') {
-      --color-content-#{$color-name}: #{$color-value};
-    }
-    
-    // Accent colors (same for both modes)
-    @each $color-name, $color-value in map-get($theme-data, 'accent') {
-      --color-accent-#{$color-name}: #{$color-value};
+        --color-base-#{$color-name}: #{$color-value};
+        --#{$theme-name}-color-base-#{$color-name}: #{$color-value};
     }
 
-    // Semantic color variables
-    --color-bg-primary: var(--color-base-background);
-    --color-bg-secondary: var(--color-base-surface);
-    --color-text-primary: var(--color-content-primary);
-    --color-text-secondary: var(--color-content-medium);
-    --color-border: var(--color-base-muted);
+    @each $color-name, $color-value in map-get(map-get($theme-data, 'dark'), 'content') {
+        --color-content-#{$color-name}: #{$color-value};
+        --#{$theme-name}-color-content-#{$color-name}: #{$color-value};
+    }
+
+    // Accent colors (same for both modes)
+    @each $color-name, $color-value in map-get($theme-data, 'accent') {
+        --color-accent-#{$color-name}: #{$color-value};
+        --#{$theme-name}-color-accent-#{$color-name}: #{$color-value};
+    }
+  }
+
+  :root {
+    @each $color-name, $color-value in map-get(map-get($theme-data, 'light'), 'content') {
+        --#{$theme-name}-color-content-#{$color-name}: #{$color-value};
+    }
+    @each $color-name, $color-value in map-get(map-get($theme-data, 'light'), 'base') {
+        --#{$theme-name}-color-base-#{$color-name}: #{$color-value};
+    }
+    @each $color-name, $color-value in map-get(map-get($theme-data, 'dark'), 'content') {
+        --#{$theme-name}-color-dark-content-#{$color-name}: #{$color-value};
+    }
+    @each $color-name, $color-value in map-get(map-get($theme-data, 'dark'), 'base') {
+        --#{$theme-name}-color-dark-base-#{$color-name}: #{$color-value};
+    }
+    @each $color-name, $color-value in map-get($theme-data, 'accent') {
+        --#{$theme-name}-color-accent-#{$color-name}: #{$color-value};
+    }
   }
 }
 
 // Apply theming to basic elements
 body {
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-base-background);
   color: var(--color-text-primary);
 }
 
@@ -232,58 +242,61 @@ body[data-mode="dark"] .dark-icon {
 }
 
 // Theme selector components
-.theme-selector {
+.theme__selector {
   display: flex;
   gap: 8px;
 }
 
-.theme-option {
+.theme__option {
   width: 28px;
   height: 28px;
   border-radius: 50%;
   cursor: pointer;
   border: 2px solid transparent;
   position: relative;
-  
+
   &.active {
-    border-color: var(--color-accent-primary);
+    border-color: var(--color-content-primary);
   }
-  
-  &.solarized {
-    background-color: var(--color-accent-primary);
+
+  &.solarized:hover {
+      background-color: var(--solarized-color-accent-secondary);
   }
-  
-  &.rich {
-    background-color: var(--color-accent-primary);
+
+  &.rich:hover {
+    background-color: var(--rich-color-accent-secondary);
   }
-  
-  &.catalan {
-    background-color: var(--color-accent-primary);
+
+  &.catalan:hover {
+    background-color: var(--catalan-color-accent-secondary);
   }
 }
 
-.theme-label {
+.theme__label {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-content-primary);
   font-weight: bold;
   font-size: 10px;
 }
 
-/* Add hover text with title attribute */
-.theme-option:hover::after {
-  content: attr(title);
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--color-bg-secondary);
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  white-space: nowrap;
-  z-index: 10;
-  margin-bottom: 8px;
+.theme__toggle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-base-subtle);
+    border: none;
+    cursor: pointer;
+
+    svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
 }
+
+
