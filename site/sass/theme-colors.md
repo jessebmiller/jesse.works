@@ -39,7 +39,7 @@ Accent colors are used for interactive elements and visual emphasis:
 - `--color-accent-highlight`: Highlight color (selected items, highlighted text)
 - `--color-accent-special`: Special accent (premium features, promotions)
 
-## Semantic Variables
+### Semantic Variables (depreciated)
 
 For common UI elements, we provide these semantic variables:
 
